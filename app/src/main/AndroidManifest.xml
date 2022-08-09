@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.moutamid.chefdarbari">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ChefDarbari"
+        tools:targetApi="31">
+        <activity
+            android:name=".affiliate.AffiliateNavigationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_affiliate_navigation"
+            android:theme="@style/Theme.ChefDarbari.NoActionBar" />
+        <activity
+            android:name=".chef.ChefNavigationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_chef_navigation"
+            android:theme="@style/Theme.ChefDarbari.NoActionBar" />
+        <activity
+            android:name=".chef.ui.JobDetailsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".HomeActivityUser"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivityCheff"
+            android:exported="false" />
+        <activity
+            android:name=".DetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VerifyOtpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:noHistory="true"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+    </application>
+
+</manifest>

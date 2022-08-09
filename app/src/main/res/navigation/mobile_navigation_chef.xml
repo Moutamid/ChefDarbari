@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation_chef"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.moutamid.chefdarbari.chef.ui.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_accepted_jobs"
+        android:name="com.moutamid.chefdarbari.chef.ui.AcceptedJobsFragment"
+        android:label="Accepted Jobs"
+        tools:layout="@layout/fragment_accepted_jobs" />
+
+    <fragment
+        android:id="@+id/navigation_completed_jobs"
+        android:name="com.moutamid.chefdarbari.chef.ui.CompletedJobsFragment"
+        android:label="Completed Jobs"
+        tools:layout="@layout/fragment_completed_jobs" />
+
+    <fragment
+        android:id="@+id/navigation_show_id"
+        android:name="com.moutamid.chefdarbari.chef.ui.ShowIDFragment"
+        android:label="Show ID"
+        tools:layout="@layout/fragment_show_id" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.moutamid.chefdarbari.chef.ui.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_terms"
+        android:name="com.moutamid.chefdarbari.chef.ui.JobTermsFragment"
+        android:label="Job Terms"
+        tools:layout="@layout/fragment_job_terms" />
+</navigation>

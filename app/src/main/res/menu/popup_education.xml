@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Below_Metrics"
+        android:title="Below Metrics" />
+    <item
+        android:id="@+id/ten10"
+        android:title="10" />
+    <item
+        android:id="@+id/twelve12"
+        android:title="12" />
+
+    <item
+        android:id="@+id/Diploma_in_Hotel_Management"
+        android:title="Diploma in Hotel Management" />
+    <item
+        android:id="@+id/Graduation"
+        android:title="Graduation" />
+
+    <item
+        android:id="@+id/Graduation_in_HM"
+        android:title="Graduation in HM" />
+    <item
+        android:id="@+id/PG"
+        android:title="PG" />
+
+    <item
+        android:id="@+id/PG_in_HM"
+        android:title="PG in HM" />
+
+</menu>

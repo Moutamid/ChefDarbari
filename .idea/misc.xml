@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/drawable/bg_number.xml" value="0.1075" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/drawable/splash_background.xml" value="0.1075" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/accepted_jobs_item.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/activity_add_booking.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/activity_affiliate_navigation.xml" value="0.1259259259259259" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/activity_bottom_navigation_affiliate.xml" value="0.13229166666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/activity_bottom_navigation_cheff.xml" value="0.1" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/activity_chef_navigation.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/activity_details.xml" value="0.16394399066511084" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/activity_home.xml" value="0.13229166666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/activity_home_user.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/activity_job_details.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/activity_login.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/activity_verify_otp.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/app_bar_affiliate_navigation.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/app_bar_chef_navigation.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/completed_jobs_item.xml" value="0.18857142857142858" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/content_affiliate_navigation.xml" value="0.1259259259259259" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/content_chef_navigation.xml" value="0.1259259259259259" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/customer_query_item.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/fragment_accepted_jobs.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/fragment_add_new_bookings.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/fragment_completed_jobs.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/fragment_customer_items.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/fragment_dashboard.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/fragment_gallery.xml" value="0.1259259259259259" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/fragment_home.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/fragment_job_terms.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/fragment_my_bookings.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/fragment_profile.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/fragment_profile_affiliate.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/fragment_show_id.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/fragment_slideshow.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/my_bookings_item.xml" value="0.11923076923076924" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/nav_header_affiliate_navigation.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/nav_header_chef_navigation.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/layout/new_jobs_items.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/activity_chef_navigation_drawer.xml" value="0.1441025641025641" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/activity_main_drawer.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/affiliate_navigation.xml" value="0.1259259259259259" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/bottom_nav_menu.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/bottom_nav_menu_affiliate.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/bottom_nav_menu_chef.xml" value="0.1" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/popup_account_type.xml" value="0.12008547008547009" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/popup_age.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/popup_cities.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/popup_cuisines.xml" value="0.109765625" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/popup_education.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/popup_experience.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/popup_languages.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/popup_occasions.xml" value="0.1453125" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/popup_physical.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/popup_post.xml" value="0.1453125" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/popup_vehicle.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Azan Comp/AndroidStudioProjects/ChefDarbari/app/src/main/res/menu/popup_workyear.xml" value="0.1918803418803419" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

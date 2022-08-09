@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Head_Chef"
+        android:title="Head Chef" />
+    <item
+        android:id="@+id/Gurugram1"
+        android:title="Sous Chef
+" />
+    <item
+        android:id="@+id/CDP"
+        android:title="CDP" />
+    <item
+        android:id="@+id/DCDP"
+        android:title="DCDP
+" />
+    <item
+        android:id="@+id/Faridabad2"
+        android:title="Commi 1
+" />
+
+    <item
+        android:id="@+id/Bangalore2"
+        android:title="Commi 2
+" />
+    <item
+        android:id="@+id/Pune3"
+        android:title="Commi 3
+" />
+
+    <item
+        android:id="@+id/Mumbai2"
+        android:title="Assistant Chef" />
+    <item
+        android:id="@+id/Helper"
+        android:title="Helper" />
+    <item
+        android:id="@+id/Chandigarh2"
+        android:title="Catering Cook" />
+    <item
+        android:id="@+id/Bartender"
+        android:title="Bartender" />
+    <item
+        android:id="@+id/Waiter"
+        android:title="Waiter" />
+
+</menu>

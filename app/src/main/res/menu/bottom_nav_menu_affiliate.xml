@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_add_jobs"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Add New Bookings" />
+<item
+        android:id="@+id/navigation_my_bookings"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="My Bookings" />
+
+    <item
+        android:id="@+id/navigation_customer_items"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="Customer Items" />
+
+    <item
+        android:id="@+id/navigation_profile_affiliate"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="Profile" />
+
+</menu>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Heaaaad_Chef"
+        android:title="North Indian" />
+    <item
+        android:id="@+id/Gurugrqam1"
+        android:title="South Indian " />
+    <item
+        android:id="@+id/CqDP"
+        android:title="Chinese" />
+
+    <item
+        android:id="@+id/Heaqaaad_Chef"
+        android:title="Mexican" />
+    <item
+        android:id="@+id/Gurugrqeam1"
+        android:title="Italian" />
+    <item
+        android:id="@+id/CqrDP"
+        android:title="Continental" />
+    <item
+        android:id="@+id/Heaaaad_Cqhef"
+        android:title="Thai" />
+    <item
+        android:id="@+id/Gurugrqaem1"
+        android:title="Barbecue" />
+    <item
+        android:id="@+id/CqDPq"
+        android:title="Home Food" />
+
+</menu>

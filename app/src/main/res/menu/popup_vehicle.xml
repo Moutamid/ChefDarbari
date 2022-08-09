@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Delhi2"
+        android:title="I have a bike/scooter
+" />
+    <item
+        android:id="@+id/Gurug2ram"
+        android:title="I have a car" />
+    <item
+        android:id="@+id/Noi2da"
+        android:title="I will use public transport" />
+
+</menu>
