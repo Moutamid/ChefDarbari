@@ -5,16 +5,12 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.moutamid.chefdarbari.DetailsActivity;
 import com.moutamid.chefdarbari.R;
-import com.moutamid.chefdarbari.databinding.FragmentProfileAffiliateBinding;
 
 public class ProfileAffiliateFragment extends Fragment {
 

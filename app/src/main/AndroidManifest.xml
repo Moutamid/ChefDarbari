@@ -26,21 +26,14 @@
         <activity
             android:name=".chef.ui.JobDetailsActivity"
             android:exported="false" />
-
         <activity
-            android:name=".HomeActivityUser"
+            android:name=".activity.details.DetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivityCheff"
+            android:name=".activity.VerifyOtpActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".VerifyOtpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SplashActivity"
+            android:name=".activity.SplashActivity"
             android:exported="true"
             android:noHistory="true"
             android:theme="@style/SplashTheme">
@@ -51,10 +44,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true" />
     </application>
 

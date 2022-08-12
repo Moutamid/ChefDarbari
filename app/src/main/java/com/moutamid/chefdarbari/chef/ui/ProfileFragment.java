@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 
-import com.moutamid.chefdarbari.DetailsActivity;
 import com.moutamid.chefdarbari.R;
 import com.moutamid.chefdarbari.databinding.FragmentProfileBinding;
 

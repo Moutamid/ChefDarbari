@@ -1,4 +1,4 @@
-package com.moutamid.chefdarbari;
+package com.moutamid.chefdarbari.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.moutamid.chefdarbari.activity.details.DetailsActivity;
+import com.moutamid.chefdarbari.utils.Constants;
+import com.moutamid.chefdarbari.R;
 import com.moutamid.chefdarbari.affiliate.AffiliateNavigationActivity;
 import com.moutamid.chefdarbari.chef.ChefNavigationActivity;
-import com.moutamid.chefdarbari.databinding.ActivityLoginBinding;
 
 import java.util.Objects;
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailsActivity">
+    tools:context=".activity.details.DetailsActivity">
 
     <RelativeLayout
         android:id="@+id/topi"
@@ -51,7 +51,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:visibility="gone"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="2dp"
                 app:cardElevation="10dp">
@@ -75,6 +74,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
+                            android:id="@+id/name_et_affiliate"
                             android:background="@color/white"
                             android:hint="Applicant Name"
                             android:textSize="20sp" />
@@ -96,6 +96,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
+                            android:id="@+id/whatsapp_et_affiliate"
                             android:hint="Whatsapp Number"
                             android:textSize="20sp" />
 
@@ -116,26 +117,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
-                            android:hint="Enter WhatsApp number"
-                            android:textSize="20sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/bg_number"
-                        android:orientation="horizontal"
-                        android:padding="15dp">
-
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="5dp"
-                            android:background="@color/white"
+                            android:id="@+id/number_et_affiliate"
                             android:hint="Mobile Number"
                             android:textSize="20sp" />
 
@@ -157,6 +139,7 @@
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
                             android:hint="Email Id"
+                            android:id="@+id/email_et_affiliate"
                             android:textSize="20sp" />
 
                     </LinearLayout>
@@ -176,26 +159,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
-                            android:hint="Mobile Number"
-                            android:textSize="20sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/bg_number"
-                        android:orientation="horizontal"
-                        android:padding="15dp">
-
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="5dp"
-                            android:background="@color/white"
+                            android:id="@+id/password_et_affiliate"
                             android:hint="Password"
                             android:textSize="20sp" />
 
@@ -216,6 +180,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
+                            android:id="@+id/confirmPassword_et_affiliate"
                             android:background="@color/white"
                             android:hint="Re Enter Password"
                             android:textSize="20sp" />
@@ -233,6 +198,7 @@
 
                         <EditText
                             android:layout_width="match_parent"
+                            android:id="@+id/shopName_et_affiliate"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
@@ -256,6 +222,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
+                            android:id="@+id/shop_city_et_affiliate"
                             android:background="@color/white"
                             android:hint="Shop City"
                             android:textSize="20sp" />
@@ -276,6 +243,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
+                            android:id="@+id/shop_address_et_affiliate"
                             android:background="@color/white"
                             android:hint="Shop Address"
                             android:textSize="20sp" />
@@ -297,6 +265,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
+                            android:id="@+id/shop_area_in_square_ft_et_affiliate"
                             android:background="@color/white"
                             android:hint="Shop Area in Square Feet"
                             android:textSize="20sp" />
@@ -320,6 +289,7 @@
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
                             android:hint="Shop Established Year"
+                            android:id="@+id/shop_established_year_et_affiliate"
                             android:textSize="20sp" />
 
                     </LinearLayout>
@@ -338,6 +308,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
+                            android:id="@+id/number_of_outlets_et_affiliate"
                             android:background="@color/white"
                             android:hint="Number of Outlets"
                             android:textSize="20sp" />
@@ -359,6 +330,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
+                            android:id="@+id/up_payment_name_address_et_affiliate"
                             android:hint="UPI Payment Address/Name"
                             android:textSize="20sp" />
 
@@ -376,6 +348,7 @@
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:id="@+id/bank_account_number_et_affiliate"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
@@ -396,6 +369,7 @@
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:id="@+id/account_holder_name_et_affiliate"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
@@ -446,6 +420,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
+                            android:id="@+id/bank_branch_name_et_affiliate"
                             android:background="@color/white"
                             android:hint="Bank Branch Name"
                             android:textSize="20sp" />
@@ -469,6 +444,7 @@
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
                             android:hint="Ifsc Code"
+                            android:id="@+id/ifsc_code_et_affiliate"
                             android:textSize="20sp" />
 
                     </LinearLayout>
@@ -487,6 +463,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
+                        android:id="@+id/ownerPhotoLayout"
                         android:layout_marginTop="20dp"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
@@ -498,6 +475,7 @@
 
                         <TextView
                             android:layout_width="wrap_content"
+                            android:id="@+id/upload_owner_photo_text_affiliate"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:text="Upload Owner Photo"
@@ -510,6 +488,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="20dp"
+                        android:id="@+id/aadhaarCardLayout"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -521,6 +500,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/owner_aadhaar_card_photo_text_affiliate"
                             android:layout_marginStart="20dp"
                             android:text="Upload Owner Aadhaar Card"
                             android:textColor="@color/black" />
@@ -532,6 +512,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="20dp"
+                        android:id="@+id/shopOutsideLayout"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -544,6 +525,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
+                            android:id="@+id/shop_photo_outside_text_affiliate"
                             android:text="Upload Shop Photo From Outside"
                             android:textColor="@color/black" />
 
@@ -554,6 +536,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="20dp"
+                        android:id="@+id/shopPhotoInsideLayout"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -564,6 +547,7 @@
 
                         <TextView
                             android:layout_width="wrap_content"
+                            android:id="@+id/shop_inside_photo_text_affiliate"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:text="Upload Shop Photo from Inside"
@@ -575,6 +559,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
+                        android:id="@+id/shopOwnershipDocLayout"
                         android:layout_marginTop="20dp"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
@@ -589,6 +574,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:text="Upload Shop Ownership Document"
+                            android:id="@+id/shop_ownership_docs_photo_text_affiliate"
                             android:textColor="@color/black" />
 
                     </LinearLayout>
@@ -596,6 +582,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
+                        android:id="@+id/checkbox_affiliate"
                         android:layout_marginHorizontal="20dp"
                         android:text="I agree to Terms and conditions" />
 
@@ -619,6 +606,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:visibility="gone"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="2dp"
                 app:cardElevation="10dp">
@@ -642,6 +630,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
+                            android:id="@+id/name_et_chef"
                             android:background="@color/white"
                             android:hint="Name"
                             android:textSize="20sp" />
@@ -662,6 +651,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
+                            android:id="@+id/number_et_chef"
                             android:background="@color/white"
                             android:hint="Phone Number"
                             android:textSize="20sp" />
@@ -683,6 +673,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
+                            android:id="@+id/whatsapp_et_chef"
                             android:hint="Whatsapp Number"
                             android:textSize="20sp" />
 
@@ -700,6 +691,7 @@
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:id="@+id/email_et_chef"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
@@ -723,6 +715,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
+                            android:id="@+id/password_et_chef"
                             android:hint="Password"
                             android:textSize="20sp" />
 
@@ -743,6 +736,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
+                            android:id="@+id/confirm_password_et_chef"
                             android:hint="Re Enter Password"
                             android:textSize="20sp" />
 
@@ -751,13 +745,14 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/city_popup_layout_chef"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/bg_number"
                         android:padding="15dp">
 
                         <TextView
-                            android:id="@+id/cityTv"
+                            android:id="@+id/city_textview_chef"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -789,6 +784,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
+                            android:id="@+id/home_town_et_chef"
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
                             android:hint="Home Town"
@@ -799,13 +795,14 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/language_layout_chef"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/bg_number"
                         android:padding="15dp">
 
                         <TextView
-                            android:id="@+id/languageTv"
+                            android:id="@+id/language_textview_chef"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -827,12 +824,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
+                        android:id="@+id/age_layout_chef"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/bg_number"
                         android:padding="15dp">
 
                         <TextView
-                            android:id="@+id/ageTv"
+                            android:id="@+id/age_textview_chef"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -854,12 +852,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
+                        android:id="@+id/education_layout_chef"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/bg_number"
                         android:padding="15dp">
 
                         <TextView
-                            android:id="@+id/education"
+                            android:id="@+id/education_textview_chef"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -896,18 +895,21 @@
 
                         <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="wrap_content"
+                            android:id="@+id/indian_expert_cheff"
                             android:layout_height="wrap_content"
                             android:text="Indian" />
 
                         <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/tandoor_expert_cheff"
                             android:layout_marginStart="20dp"
                             android:text="Tandoor" />
 
                         <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/mughlai_expert_cheff"
                             android:layout_marginStart="20dp"
                             android:text="Mughlai" />
 
@@ -922,17 +924,20 @@
                         <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/continental_expert_cheff"
                             android:text="Continental" />
 
                         <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/chaat_expert_cheff"
                             android:layout_marginStart="20dp"
                             android:text="Chaat" />
 
                         <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/asian_expert_cheff"
                             android:layout_marginStart="20dp"
                             android:text="Asian" />
 
@@ -947,11 +952,13 @@
                         <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/pantry_expert_cheff"
                             android:text="Pantry" />
 
                         <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/chinese_expert_cheff"
                             android:layout_marginStart="20dp"
                             android:text="Chinese" />
 
@@ -959,6 +966,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
+                            android:id="@+id/italian_expert_cheff"
                             android:text="Italian" />
 
                     </LinearLayout>
@@ -971,11 +979,13 @@
 
                         <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="wrap_content"
+                            android:id="@+id/mexican_expert_cheff"
                             android:layout_height="wrap_content"
                             android:text="Mexican" />
 
                         <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="wrap_content"
+                            android:id="@+id/thai_expert_cheff"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:text="Thai" />
@@ -983,6 +993,7 @@
                         <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/japanese_expert_cheff"
                             android:layout_marginStart="20dp"
                             android:text="Japanese" />
 
@@ -997,11 +1008,13 @@
                         <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/lebanese_expert_cheff"
                             android:text="Lebanese" />
 
                         <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/pastry_expert_cheff"
                             android:layout_marginStart="20dp"
                             android:text="Pastry" />
 
@@ -1009,6 +1022,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
+                            android:id="@+id/bakery_expert_cheff"
                             android:text="Bakery" />
 
                     </LinearLayout>
@@ -1022,12 +1036,14 @@
                         <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/drinks_bartender_expert_cheff"
                             android:text="Drinks (Bartender)" />
 
                         <androidx.appcompat.widget.AppCompatCheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
+                            android:id="@+id/serving_waiter_expert_cheff"
                             android:text="Serving (Waiter)" />
 
                     </LinearLayout>
@@ -1037,11 +1053,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="10dp"
+                        android:id="@+id/post_layout_cheff"
                         android:background="@drawable/bg_number"
                         android:padding="15dp">
 
                         <TextView
-                            android:id="@+id/post"
+                            android:id="@+id/post_textview_cheff"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -1064,11 +1081,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="10dp"
+                        android:id="@+id/experience_layout_chef"
                         android:background="@drawable/bg_number"
                         android:padding="15dp">
 
                         <TextView
-                            android:id="@+id/experience"
+                            android:id="@+id/experience_textview_chef"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -1091,11 +1109,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="10dp"
+                        android:id="@+id/vehicle_layout_chef"
                         android:background="@drawable/bg_number"
                         android:padding="15dp">
 
                         <TextView
-                            android:id="@+id/vehicle"
+                            android:id="@+id/vehicle_textview_chef"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -1129,6 +1148,7 @@
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
                             android:hint="Monthly Salary Rs."
+                            android:id="@+id/monthly_salary_et_chef"
                             android:inputType="number"
                             android:textSize="20sp" />
 
@@ -1139,11 +1159,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="10dp"
+                        android:id="@+id/physical_layout_chef"
                         android:background="@drawable/bg_number"
                         android:padding="15dp">
 
                         <TextView
-                            android:id="@+id/physical"
+                            android:id="@+id/physical_textview_chef"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -1191,6 +1212,7 @@
                             android:background="@color/white"
                             android:hint="Hotel/Restaurant Name"
                             android:inputType="number"
+                            android:id="@+id/work_1_exhotel_name_et_chef"
                             android:textSize="20sp" />
 
                     </LinearLayout>
@@ -1211,6 +1233,7 @@
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
                             android:hint="Post"
+                            android:id="@+id/work_ex_1_post_et_cheff"
                             android:inputType="number"
                             android:textSize="20sp" />
 
@@ -1232,6 +1255,7 @@
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
                             android:hint="City"
+                            android:id="@+id/work_ex_1_city_et_chef"
                             android:inputType="number"
                             android:textSize="20sp" />
 
@@ -1243,10 +1267,11 @@
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/bg_number"
+                        android:id="@+id/work_ex_1_worked_year_layout_chef"
                         android:padding="15dp">
 
                         <TextView
-                            android:id="@+id/workyear1"
+                            android:id="@+id/work_ex_1_worked_year_textview_chef"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -1279,6 +1304,7 @@
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="20dp"
                         android:gravity="center_vertical"
+                        android:id="@+id/work_ex_1_experience_certificate_layout_url_chef"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -1290,6 +1316,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
+                            android:id="@+id/work_ex_1_experience_certificate_textview_url_chef"
                             android:text="Experience/Joining Certificate"
                             android:textColor="@color/black" />
 
@@ -1325,6 +1352,7 @@
                             android:background="@color/white"
                             android:hint="Hotel/Restaurant Name"
                             android:inputType="number"
+                            android:id="@+id/work_ex_2_hotel_name_et_chef"
                             android:textSize="20sp" />
 
                     </LinearLayout>
@@ -1345,6 +1373,7 @@
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
                             android:hint="Post"
+                            android:id="@+id/work_ex_2_post_et_chef"
                             android:inputType="number"
                             android:textSize="20sp" />
 
@@ -1366,6 +1395,7 @@
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
                             android:hint="City"
+                            android:id="@+id/work_ex_2_city_et_chef"
                             android:inputType="number"
                             android:textSize="20sp" />
 
@@ -1376,11 +1406,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="10dp"
+                        android:id="@+id/work_ex_2_worked_year_layout_chef"
                         android:background="@drawable/bg_number"
                         android:padding="15dp">
 
                         <TextView
-                            android:id="@+id/workyear2"
+                            android:id="@+id/work_ex_2_worked_year_textview_chef"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -1412,6 +1443,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="20dp"
+                        android:id="@+id/work_ex_2_experience_certificate_layout_chef"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -1424,6 +1456,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
+                            android:id="@+id/work_ex_2_experience_certificate_textview_chef"
                             android:text="Experience/Joining Certificate"
                             android:textColor="@color/black" />
 
@@ -1445,6 +1478,7 @@
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="20dp"
                         android:gravity="center_vertical"
+                        android:id="@+id/work_ex_2_professional_photo_layout_chef"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -1455,6 +1489,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/work_ex_2_professional_photo_textview_chef"
                             android:layout_marginStart="20dp"
                             android:text="Upload Your Professional Photo"
                             android:textColor="@color/black" />
@@ -1466,6 +1501,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="20dp"
+                        android:id="@+id/work_ex_2_aadhaar_photo_layout_chef"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -1478,6 +1514,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
+                            android:id="@+id/work_ex_2_aadhaar_photo_textview_chef"
                             android:text="Upload Aadhaar"
                             android:textColor="@color/black" />
 
@@ -1488,6 +1525,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="20dp"
+                        android:id="@+id/work_ex_2_education_certificate_layout_chef"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -1499,6 +1537,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/work_ex_2_education_certificate_textview_chef"
                             android:layout_marginStart="20dp"
                             android:text="Upload Education Certificate"
                             android:textColor="@color/black" />
@@ -1510,6 +1549,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="20dp"
+                        android:id="@+id/work_ex_2_resume_layout_chef"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -1523,6 +1563,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:text="Upload Resume"
+                            android:id="@+id/work_ex_2_resume_textview_chef"
                             android:textColor="@color/black" />
 
                     </LinearLayout>
@@ -1532,6 +1573,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="20dp"
+                        android:id="@+id/work_ex_2_covid_certificate_layout_chef"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -1543,6 +1585,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/work_ex_2_covid_certificate_textview_chef"
                             android:layout_marginStart="20dp"
                             android:text="Upload Covid Vaccination Certificate"
                             android:textColor="@color/black" />
@@ -1551,6 +1594,7 @@
 
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:layout_width="wrap_content"
+                        android:id="@+id/checkbox_chef"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="20dp"

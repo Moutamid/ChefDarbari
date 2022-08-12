@@ -68,6 +68,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:id="@+id/name"
                         android:layout_marginStart="5dp"
                         android:background="@color/white"
                         android:hint="Name of The Customer"
@@ -116,6 +117,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:id="@+id/numberEt"
                         android:layout_marginStart="5dp"
                         android:background="@color/white"
                         android:hint="Phone number"
@@ -136,6 +138,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:id="@+id/party_venue_addressEt"
                         android:layout_marginStart="5dp"
                         android:background="@color/white"
                         android:hint="Party Venue Address"
@@ -157,6 +160,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="5dp"
+                        android:id="@+id/dateEt"
                         android:background="@color/white"
                         android:hint="Date of party"
                         android:textSize="20sp" />
@@ -179,6 +183,7 @@
                         android:layout_marginStart="5dp"
                         android:background="@color/white"
                         android:hint="Time"
+                        android:id="@+id/timeEt"
                         android:textSize="20sp" />
 
                 </LinearLayout>
@@ -198,6 +203,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="5dp"
                         android:background="@color/white"
+                        android:id="@+id/number_of_people"
                         android:hint="No. of People above 5 years"
                         android:textSize="20sp" />
 
@@ -221,12 +227,14 @@
 
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:layout_width="wrap_content"
+                        android:id="@+id/north_indian_check_box"
                         android:layout_height="wrap_content"
                         android:text="North Indian" />
 
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/south_indian_check_box"
                         android:layout_marginStart="20dp"
                         android:text="South Indian" />
 
@@ -234,6 +242,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
+                        android:id="@+id/chinese_check_box"
                         android:text="Chinese" />
 
                 </LinearLayout>
@@ -247,18 +256,21 @@
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/mexican_check_box"
                         android:text="Mexican" />
 
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
+                        android:id="@+id/italian_check_box"
                         android:text="Italian" />
 
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
+                        android:id="@+id/continental_check_box"
                         android:text="Continental" />
 
                 </LinearLayout>
@@ -272,18 +284,21 @@
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/thai_check_box"
                         android:text="Thai" />
 
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
+                        android:id="@+id/barbecue_check_box"
                         android:text="Barbecue" />
 
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
+                        android:id="@+id/home_food_check_box"
                         android:text="Home Food" />
 
                 </LinearLayout>
@@ -305,12 +320,13 @@
                         android:background="@color/white"
                         android:hint="No. of dishes"
                         android:inputType="number"
+                        android:id="@+id/number_of_dishes_et"
                         android:textSize="20sp" />
 
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/uploadBtnAffiliate"
+                    android:id="@+id/uploadBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"

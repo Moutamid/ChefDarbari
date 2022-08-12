@@ -1,4 +1,4 @@
-package com.moutamid.chefdarbari;
+package com.moutamid.chefdarbari.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
