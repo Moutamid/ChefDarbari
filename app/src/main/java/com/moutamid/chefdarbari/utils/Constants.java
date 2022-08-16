@@ -18,6 +18,7 @@ public class Constants {
     public static final String FILTER_VIDEOS = "Videos";
     public static final String CURRENT_USER_MODEL = "currentusermodel";
     public static final String ADMIN = "admin";
+    public static final String ADMIN_BOOKINGS = "ADMIN_BOOKINGS";
     public static final String VIDEO_APPROVAL_REQUEST = "video_approval_requests";
     public static final String IS_APPROVED = "is_approved";
     public static final String PUBLIC_POSTS = "public_posts";
@@ -39,6 +40,9 @@ public class Constants {
     public static final String CURRENT_POST_MODEL = "current_post_model";
     public static final String IS_CONTACT_CHECKED = "IS_CONTACT_CHECKED";
     public static final String IS_FOLLOWER_CHECKED = "IS_FOLLOWER_CHECKED";
+    public static final String NEW_PARTY_BOOKINGS = "NEW_PARTY_BOOKINGS";
+    public static final String CURRENT_JOB_MODEL = "CURRENT_JOB_MODEL";
+    public static final String USER_TYPE = "USER_TYPE";
 
     public static FirebaseAuth auth() {
         return FirebaseAuth.getInstance();

@@ -105,6 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="5dp"
+                android:id="@+id/emailEt"
                 android:background="@color/white"
                 android:hint="Enter email"
                 android:textSize="20sp" />
@@ -141,6 +142,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="5dp"
                 android:background="@color/white"
+                android:id="@+id/password"
                 android:hint="Enter password"
                 android:textSize="20sp" />
 

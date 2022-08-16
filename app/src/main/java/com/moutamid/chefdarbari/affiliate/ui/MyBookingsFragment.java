@@ -2,19 +2,25 @@ package com.moutamid.chefdarbari.affiliate.ui;
 
 import static android.view.LayoutInflater.from;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.moutamid.chefdarbari.R;
 import com.moutamid.chefdarbari.databinding.FragmentMyBookingsBinding;
+import com.moutamid.chefdarbari.models.AffiliateAddBookingModel;
+import com.moutamid.chefdarbari.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -26,19 +32,39 @@ public class MyBookingsFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         b = FragmentMyBookingsBinding.inflate(inflater, container, false);
         View root = b.getRoot();
-        initRecyclerView();
 
-       /* b.addBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(requireContext(), AddBookingActivity.class));
-            }
-        });*/
+        Constants.databaseReference()
+                .child(Constants.auth().getUid())
+                .child(Constants.NEW_PARTY_BOOKINGS)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+
+                            tasksArrayList.clear();
+
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
+                                AffiliateAddBookingModel model = dataSnapshot.getValue(AffiliateAddBookingModel.class);
+                                tasksArrayList.add(model);
+
+                            }
+
+                            initRecyclerView();
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(requireContext(), error.toException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
 
         return root;
     }
 
-    private ArrayList<String> tasksArrayList = new ArrayList<>();
+    private ArrayList<AffiliateAddBookingModel> tasksArrayList = new ArrayList<AffiliateAddBookingModel>();
 
     private RecyclerView conversationRecyclerView;
     private RecyclerViewAdapterMessages adapter;
@@ -69,12 +95,6 @@ public class MyBookingsFragment extends Fragment {
 
     }
 
-/*public static int calculateNoOfColumns(Context context, float columnWidthDp) { // For example columnWidthdp=180
-    DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-    float screenWidthDp = displayMetrics.widthPixels / displayMetrics.density;
-    int noOfColumns = (int) (screenWidthDp / columnWidthDp + 0.5); // +0.5 for correct rounding to int.
-    return noOfColumns;
-}*/
 
     private class RecyclerViewAdapterMessages extends RecyclerView.Adapter
             <RecyclerViewAdapterMessages.ViewHolderRightMessage> {
@@ -88,25 +108,47 @@ public class MyBookingsFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull final ViewHolderRightMessage holder, int position) {
-
-//            holder.title.setText("");
+            AffiliateAddBookingModel model = tasksArrayList.get(position);
+// name, staffRequired, payment, occasion, party_date,
+//                    number_of_people, time, no_of_dishes, cuisines, party_adress;
+            holder.name.setText(model.name);
+//            holder.staffRequired.setText(model.s);
+//            holder.payment.setText(model.pa);
+            holder.occasion.setText(model.occasion_type);
+            holder.party_date.setText(model.date_of_party);
+            holder.number_of_people.setText(model.number_of_people);
+            holder.time.setText(model.date_of_party + " " + model.time);
+            holder.no_of_dishes.setText(model.number_of_dishes);
+            holder.cuisines.setText(model.cuisinesList.toString());
+            holder.party_adress.setText(model.party_venue_address);
 
         }
 
         @Override
         public int getItemCount() {
-//            if (tasksArrayList == null)
-            return 10;
-//            return tasksArrayList.size();
+            if (tasksArrayList == null)
+                return 0;
+            return tasksArrayList.size();
         }
 
         public class ViewHolderRightMessage extends RecyclerView.ViewHolder {
 
-//            TextView title;
+            TextView name, payment, occasion, party_date,
+                    number_of_people, time, no_of_dishes, cuisines, party_adress;
 
+            //staffRequired
             public ViewHolderRightMessage(@NonNull View v) {
                 super(v);
-//                title = v.findViewById(R.id.titleTextview);
+                name = v.findViewById(R.id.name_my_bookings_item);
+//                staffRequired = v.findViewById(R.id.staff_required_my_bookings_item);
+                payment = v.findViewById(R.id.payment_my_bookings_item);
+                occasion = v.findViewById(R.id.occasion_my_bookings_item);
+                party_date = v.findViewById(R.id.party_date_my_bookings_item);
+                number_of_people = v.findViewById(R.id.number_of_people_my_bookings_item);
+                time = v.findViewById(R.id.time_my_bookings_item);
+                no_of_dishes = v.findViewById(R.id.no_of_dishes_my_bookings_item);
+                cuisines = v.findViewById(R.id.cuisines_my_bookings_item);
+                party_adress = v.findViewById(R.id.party_adress_my_bookings_item);
 
             }
         }

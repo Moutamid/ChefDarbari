@@ -67,12 +67,7 @@ public class DetailsActivity extends AppCompatActivity {
         affiliateUserModel.shopPhotoOutsideUrl = Constants.NULL;
         affiliateUserModel.shopOwnerShipDocUrl = Constants.NULL;
 
-        chefUserModel.work_1_certificate = Constants.NULL;
-        chefUserModel.work_2_certificate = Constants.NULL;
-        chefUserModel.aadhaar_card_url = Constants.NULL;
-        chefUserModel.education_certificate_url = Constants.NULL;
-        chefUserModel.resume_url = Constants.NULL;
-        chefUserModel.covid_vaccination_url = Constants.NULL;
+
 
         b.accountTypeTv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,203 +95,7 @@ public class DetailsActivity extends AppCompatActivity {
                 popupMenu.show();
             }
         });
-        b.cityPopupLayoutChef.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(DetailsActivity.this, v);
-                popupMenu.getMenuInflater().inflate(
-                        R.menu.popup_cities,
-                        popupMenu.getMenu()
-                );
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        b.cityTextviewChef.setText(menuItem.getTitle().toString());
-                        chefUserModel.city = menuItem.getTitle().toString();
-                        return true;
-                    }
-                });
-                popupMenu.show();
-            }
-        });
-        b.languageLayoutChef.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(DetailsActivity.this, v);
-                popupMenu.getMenuInflater().inflate(
-                        R.menu.popup_languages,
-                        popupMenu.getMenu()
-                );
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        chefUserModel.language_speak = menuItem.getTitle().toString();
-                        b.languageTextviewChef.setText(menuItem.getTitle().toString());
-                        return true;
-                    }
-                });
-                popupMenu.show();
-            }
-        });
-        b.ageLayoutChef.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(DetailsActivity.this, v);
-                popupMenu.getMenuInflater().inflate(
-                        R.menu.popup_age,
-                        popupMenu.getMenu()
-                );
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        chefUserModel.age = menuItem.getTitle().toString();
-                        b.ageTextviewChef.setText(menuItem.getTitle().toString());
-                        return true;
-                    }
-                });
-                popupMenu.show();
-            }
-        });
-        b.educationLayoutChef.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(DetailsActivity.this, v);
-                popupMenu.getMenuInflater().inflate(
-                        R.menu.popup_education,
-                        popupMenu.getMenu()
-                );
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        b.educationTextviewChef.setText(menuItem.getTitle().toString());
-                        chefUserModel.highest_education = menuItem.getTitle().toString();
 
-                        return true;
-                    }
-                });
-                popupMenu.show();
-            }
-        });
-
-        b.postLayoutCheff.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(DetailsActivity.this, v);
-                popupMenu.getMenuInflater().inflate(
-                        R.menu.popup_post,
-                        popupMenu.getMenu()
-                );
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        b.postTextviewCheff.setText(menuItem.getTitle().toString());
-                        chefUserModel.post = menuItem.getTitle().toString();
-                        return true;
-                    }
-                });
-                popupMenu.show();
-            }
-        });
-
-        b.experienceLayoutChef.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(DetailsActivity.this, v);
-                popupMenu.getMenuInflater().inflate(
-                        R.menu.popup_experience,
-                        popupMenu.getMenu()
-                );
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        b.experienceTextviewChef.setText(menuItem.getTitle().toString());
-                        chefUserModel.total_experience = menuItem.getTitle().toString();
-                        return true;
-                    }
-                });
-                popupMenu.show();
-            }
-        });
-
-        b.vehicleLayoutChef.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(DetailsActivity.this, v);
-                popupMenu.getMenuInflater().inflate(
-                        R.menu.popup_vehicle,
-                        popupMenu.getMenu()
-                );
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        b.vehicleTextviewChef.setText(menuItem.getTitle().toString());
-                        chefUserModel.has_vehicle = menuItem.getTitle().toString();
-                        return true;
-                    }
-                });
-                popupMenu.show();
-            }
-        });
-
-        b.physicalLayoutChef.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(DetailsActivity.this, v);
-                popupMenu.getMenuInflater().inflate(
-                        R.menu.popup_physical,
-                        popupMenu.getMenu()
-                );
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        b.physicalTextviewChef.setText(menuItem.getTitle().toString());
-                        chefUserModel.physical_status = menuItem.getTitle().toString();
-                        return true;
-                    }
-                });
-                popupMenu.show();
-            }
-        });
-
-        b.workEx1WorkedYearLayoutChef.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(DetailsActivity.this, v);
-                popupMenu.getMenuInflater().inflate(
-                        R.menu.popup_workyear,
-                        popupMenu.getMenu()
-                );
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        b.workEx1WorkedYearTextviewChef.setText(menuItem.getTitle().toString());
-                        chefUserModel.work_1_worked_years = menuItem.getTitle().toString();
-                        return true;
-                    }
-                });
-                popupMenu.show();
-            }
-        });
-
-        b.workEx2WorkedYearLayoutChef.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(DetailsActivity.this, v);
-                popupMenu.getMenuInflater().inflate(
-                        R.menu.popup_workyear,
-                        popupMenu.getMenu()
-                );
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        b.workEx2WorkedYearTextviewChef.setText(menuItem.getTitle().toString());
-                        chefUserModel.work_2_worked_years = menuItem.getTitle().toString();
-                        return true;
-                    }
-                });
-                popupMenu.show();
-            }
-        });
         b.submitBtnChef.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -478,7 +277,7 @@ public class DetailsActivity extends AppCompatActivity {
                 progressDialog.show();
 
                 final StorageReference filePath = storageReference
-                        .child(Constants.auth().getCurrentUser().getUid() + imageUri.getLastPathSegment());
+                        .child(System.currentTimeMillis() + imageUri.getLastPathSegment());
                 filePath.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

@@ -1,7 +1,12 @@
 package com.moutamid.chefdarbari.activity.details;
 
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.PopupMenu;
+
+import com.moutamid.chefdarbari.R;
 import com.moutamid.chefdarbari.databinding.ActivityDetailsBinding;
 import com.moutamid.chefdarbari.utils.Constants;
 
@@ -15,6 +20,211 @@ public class ChefController {
     public ChefController(DetailsActivity activity, ActivityDetailsBinding b) {
         this.activity = activity;
         this.b = b;
+
+        activity.chefUserModel.work_1_certificate = Constants.NULL;
+        activity.chefUserModel.work_2_certificate = Constants.NULL;
+        activity.chefUserModel.aadhaar_card_url = Constants.NULL;
+        activity.chefUserModel.education_certificate_url = Constants.NULL;
+        activity.chefUserModel.resume_url = Constants.NULL;
+        activity.chefUserModel.covid_vaccination_url = Constants.NULL;
+
+        b.cityPopupLayoutChef.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(activity, v);
+                popupMenu.getMenuInflater().inflate(
+                        R.menu.popup_cities,
+                        popupMenu.getMenu()
+                );
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        b.cityTextviewChef.setText(menuItem.getTitle().toString());
+                        activity.chefUserModel.city = menuItem.getTitle().toString();
+                        return true;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
+        b.languageLayoutChef.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(activity, v);
+                popupMenu.getMenuInflater().inflate(
+                        R.menu.popup_languages,
+                        popupMenu.getMenu()
+                );
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        activity.chefUserModel.language_speak = menuItem.getTitle().toString();
+                        b.languageTextviewChef.setText(menuItem.getTitle().toString());
+                        return true;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
+        b.ageLayoutChef.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(activity, v);
+                popupMenu.getMenuInflater().inflate(
+                        R.menu.popup_age,
+                        popupMenu.getMenu()
+                );
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        activity.chefUserModel.age = menuItem.getTitle().toString();
+                        b.ageTextviewChef.setText(menuItem.getTitle().toString());
+                        return true;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
+        b.educationLayoutChef.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(activity, v);
+                popupMenu.getMenuInflater().inflate(
+                        R.menu.popup_education,
+                        popupMenu.getMenu()
+                );
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        b.educationTextviewChef.setText(menuItem.getTitle().toString());
+                        activity.chefUserModel.highest_education = menuItem.getTitle().toString();
+
+                        return true;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
+
+        b.postLayoutCheff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(activity, v);
+                popupMenu.getMenuInflater().inflate(
+                        R.menu.popup_post,
+                        popupMenu.getMenu()
+                );
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        b.postTextviewCheff.setText(menuItem.getTitle().toString());
+                        activity.chefUserModel.post = menuItem.getTitle().toString();
+                        return true;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
+
+        b.experienceLayoutChef.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(activity, v);
+                popupMenu.getMenuInflater().inflate(
+                        R.menu.popup_experience,
+                        popupMenu.getMenu()
+                );
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        b.experienceTextviewChef.setText(menuItem.getTitle().toString());
+                        activity.chefUserModel.total_experience = menuItem.getTitle().toString();
+                        return true;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
+
+        b.vehicleLayoutChef.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(activity, v);
+                popupMenu.getMenuInflater().inflate(
+                        R.menu.popup_vehicle,
+                        popupMenu.getMenu()
+                );
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        b.vehicleTextviewChef.setText(menuItem.getTitle().toString());
+                        activity.chefUserModel.has_vehicle = menuItem.getTitle().toString();
+                        return true;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
+
+        b.physicalLayoutChef.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(activity, v);
+                popupMenu.getMenuInflater().inflate(
+                        R.menu.popup_physical,
+                        popupMenu.getMenu()
+                );
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        b.physicalTextviewChef.setText(menuItem.getTitle().toString());
+                        activity.chefUserModel.physical_status = menuItem.getTitle().toString();
+                        return true;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
+
+        b.workEx1WorkedYearLayoutChef.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(activity, v);
+                popupMenu.getMenuInflater().inflate(
+                        R.menu.popup_workyear,
+                        popupMenu.getMenu()
+                );
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        b.workEx1WorkedYearTextviewChef.setText(menuItem.getTitle().toString());
+                        activity.chefUserModel.work_1_worked_years = menuItem.getTitle().toString();
+                        return true;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
+
+        b.workEx2WorkedYearLayoutChef.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(activity, v);
+                popupMenu.getMenuInflater().inflate(
+                        R.menu.popup_workyear,
+                        popupMenu.getMenu()
+                );
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        b.workEx2WorkedYearTextviewChef.setText(menuItem.getTitle().toString());
+                        activity.chefUserModel.work_2_worked_years = menuItem.getTitle().toString();
+                        return true;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
     }
 
     public boolean checkEntries() {

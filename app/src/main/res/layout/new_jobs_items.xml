@@ -65,6 +65,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="Name"
+                android:id="@+id/name_new_jobs_item"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -78,6 +79,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:textColor="@color/black"
+                android:id="@+id/id_number_new_jobs_item"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -96,6 +98,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:text="Staff required"
                 android:textColor="@color/black"
+                android:id="@+id/staff_required_new_jobs_item"
                 android:textSize="18sp" />
 
             <TextView
@@ -107,6 +110,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Payment Rs"
                 android:textColor="@color/black"
+                android:id="@+id/payment_new_jobs_item"
                 android:textSize="18sp" />
 
 
@@ -122,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
+                android:id="@+id/occasion_new_jobs_item"
                 android:text="Occasion"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
@@ -132,6 +137,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
+                android:id="@+id/party_date_new_jobs_item"
                 android:text="Party Date"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
@@ -149,6 +155,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
+                android:id="@+id/number_of_people_new_jobs_item"
                 android:text="Number of People"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
@@ -159,6 +166,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
+                android:id="@+id/time_new_jobs_item"
                 android:text="Time"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
@@ -176,6 +184,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
+                android:id="@+id/number_of_dishes_new_jobs_item"
                 android:text="No. of Dishes"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
@@ -187,6 +196,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="Cuisines"
+                android:id="@+id/cuisines_new_jobs_item"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -201,6 +211,7 @@
             android:layout_marginBottom="20dp"
             android:text="Party address"
             android:textColor="@color/black"
+            android:id="@+id/party_address_new_jobs_item"
             android:textSize="18sp" />
     </LinearLayout>
 

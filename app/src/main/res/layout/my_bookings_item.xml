@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/newjobscardview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
@@ -42,16 +41,6 @@
 
             android:background="@color/grey" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="10dp"
-            android:text="Name"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -61,11 +50,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:id="@+id/staff_required_my_bookings_item"
                 android:layout_marginHorizontal="20dp"
                 android:text="Staff required"
+                android:visibility="gone"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Name"
+                android:id="@+id/name_my_bookings_item"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,7 +73,9 @@
                 android:layout_centerVertical="true"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
+                android:id="@+id/payment_my_bookings_item"
                 android:text="Payment Rs"
+                android:visibility="gone"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -90,6 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
+                android:id="@+id/occasion_my_bookings_item"
                 android:text="Occasion"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
@@ -100,6 +103,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
+                android:id="@+id/party_date_my_bookings_item"
                 android:text="Party Date"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
@@ -117,6 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
+                android:id="@+id/number_of_people_my_bookings_item"
                 android:text="Number of People"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
@@ -128,6 +133,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="Time"
+                android:id="@+id/time_my_bookings_item"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -145,6 +151,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="No. of Dishes"
+                android:id="@+id/no_of_dishes_my_bookings_item"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -156,6 +163,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Cuisines"
                 android:textColor="@color/black"
+                android:id="@+id/cuisines_my_bookings_item"
                 android:textSize="18sp" />
 
 
@@ -167,6 +175,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
+            android:id="@+id/party_adress_my_bookings_item"
             android:text="Party address"
             android:textColor="@color/black"
             android:textSize="18sp" />

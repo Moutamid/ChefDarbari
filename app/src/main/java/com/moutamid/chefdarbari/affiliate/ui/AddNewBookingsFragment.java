@@ -12,12 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.moutamid.chefdarbari.R;
-import com.moutamid.chefdarbari.activity.details.DetailsActivity;
-import com.moutamid.chefdarbari.databinding.FragmentAcceptedJobsBinding;
 import com.moutamid.chefdarbari.databinding.FragmentAddNewBookingsBinding;
-import com.moutamid.chefdarbari.databinding.FragmentCustomerItemsBinding;
 import com.moutamid.chefdarbari.models.AffiliateAddBookingModel;
+import com.moutamid.chefdarbari.utils.Constants;
 
 public class AddNewBookingsFragment extends Fragment {
 
@@ -60,7 +60,27 @@ public class AddNewBookingsFragment extends Fragment {
                 if (checkEntries())
                     return;
 
+                progressDialog.show();
 
+                Constants.databaseReference().child(Constants.NEW_PARTY_BOOKINGS)
+                        .push()
+                        .setValue(affiliateAddBookingModel)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Constants.databaseReference()
+                                        .child(Constants.auth().getUid())
+                                        .child(Constants.NEW_PARTY_BOOKINGS)
+                                        .push()
+                                        .setValue(affiliateAddBookingModel);
+                                progressDialog.dismiss();
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(requireContext(), "Done", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(requireContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
 
             }
         });
@@ -108,31 +128,31 @@ public class AddNewBookingsFragment extends Fragment {
 
         affiliateAddBookingModel.cuisinesList.clear();
 
-        if (b.northIndianCheckBox.isChecked()){
+        if (b.northIndianCheckBox.isChecked()) {
             affiliateAddBookingModel.cuisinesList.add(b.northIndianCheckBox.getText().toString());
         }
-        if (b.southIndianCheckBox.isChecked()){
+        if (b.southIndianCheckBox.isChecked()) {
             affiliateAddBookingModel.cuisinesList.add(b.southIndianCheckBox.getText().toString());
         }
-        if (b.chineseCheckBox.isChecked()){
+        if (b.chineseCheckBox.isChecked()) {
             affiliateAddBookingModel.cuisinesList.add(b.chineseCheckBox.getText().toString());
         }
-        if (b.mexicanCheckBox.isChecked()){
+        if (b.mexicanCheckBox.isChecked()) {
             affiliateAddBookingModel.cuisinesList.add(b.mexicanCheckBox.getText().toString());
         }
-        if (b.italianCheckBox.isChecked()){
+        if (b.italianCheckBox.isChecked()) {
             affiliateAddBookingModel.cuisinesList.add(b.italianCheckBox.getText().toString());
         }
-        if (b.continentalCheckBox.isChecked()){
+        if (b.continentalCheckBox.isChecked()) {
             affiliateAddBookingModel.cuisinesList.add(b.continentalCheckBox.getText().toString());
         }
-        if (b.thaiCheckBox.isChecked()){
+        if (b.thaiCheckBox.isChecked()) {
             affiliateAddBookingModel.cuisinesList.add(b.thaiCheckBox.getText().toString());
         }
-        if (b.barbecueCheckBox.isChecked()){
+        if (b.barbecueCheckBox.isChecked()) {
             affiliateAddBookingModel.cuisinesList.add(b.barbecueCheckBox.getText().toString());
         }
-        if (b.homeFoodCheckBox.isChecked()){
+        if (b.homeFoodCheckBox.isChecked()) {
             affiliateAddBookingModel.cuisinesList.add(b.homeFoodCheckBox.getText().toString());
         }
 
