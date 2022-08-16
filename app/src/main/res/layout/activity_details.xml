@@ -51,6 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:visibility="gone"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="2dp"
                 app:cardElevation="10dp">
@@ -606,7 +607,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:visibility="gone"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="2dp"
                 app:cardElevation="10dp">
@@ -1211,7 +1211,6 @@
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
                             android:hint="Hotel/Restaurant Name"
-                            android:inputType="number"
                             android:id="@+id/work_1_exhotel_name_et_chef"
                             android:textSize="20sp" />
 
@@ -1234,7 +1233,6 @@
                             android:background="@color/white"
                             android:hint="Post"
                             android:id="@+id/work_ex_1_post_et_cheff"
-                            android:inputType="number"
                             android:textSize="20sp" />
 
                     </LinearLayout>
@@ -1256,7 +1254,6 @@
                             android:background="@color/white"
                             android:hint="City"
                             android:id="@+id/work_ex_1_city_et_chef"
-                            android:inputType="number"
                             android:textSize="20sp" />
 
                     </LinearLayout>
@@ -1351,7 +1348,6 @@
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
                             android:hint="Hotel/Restaurant Name"
-                            android:inputType="number"
                             android:id="@+id/work_ex_2_hotel_name_et_chef"
                             android:textSize="20sp" />
 
@@ -1374,7 +1370,6 @@
                             android:background="@color/white"
                             android:hint="Post"
                             android:id="@+id/work_ex_2_post_et_chef"
-                            android:inputType="number"
                             android:textSize="20sp" />
 
                     </LinearLayout>
@@ -1396,7 +1391,6 @@
                             android:background="@color/white"
                             android:hint="City"
                             android:id="@+id/work_ex_2_city_et_chef"
-                            android:inputType="number"
                             android:textSize="20sp" />
 
                     </LinearLayout>

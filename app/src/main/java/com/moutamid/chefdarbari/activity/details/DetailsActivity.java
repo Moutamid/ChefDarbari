@@ -332,6 +332,8 @@ public class DetailsActivity extends AppCompatActivity {
                                     chefUserModel.covid_vaccination_url = photoUrl.toString();
                                     b.workEx2CovidCertificateTextviewChef.setText(imageUri.getLastPathSegment());
                                 }
+                                progressDialog.dismiss();
+                                Toast.makeText(DetailsActivity.this, "Success", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
