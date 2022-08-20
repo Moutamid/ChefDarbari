@@ -12,6 +12,8 @@ import com.moutamid.chefdarbari.databinding.ActivityJobDetailsBinding;
 import com.moutamid.chefdarbari.models.JobsAdminModel;
 import com.moutamid.chefdarbari.utils.Constants;
 
+import java.util.Objects;
+
 public class JobDetailsActivity extends AppCompatActivity {
 
     private ActivityJobDetailsBinding b;
@@ -22,23 +24,24 @@ public class JobDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         b = ActivityJobDetailsBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
-        b.idJobDetails.setText("");
-        b.nameJobDetails.setText(model.name);
-        b.staff.setText(model.staff_required);
-        b.payment.setText(model.payment);
-        b.occasion.setText(model.occasion_type);
-        b.partydate.setText(model.date);
-        b.numberofpeople.setText(model.number_of_people);
-        b.time.setText(model.time);
-        b.numberofdishes.setText(model.no_of_dishes);
-        b.cuisinesList.setText(model.cuisines_list.toString());
-        b.dishtype.setText(model.dish_type);
-        b.partyaddress.setText(model.party_address);
-        b.number.setText(model.number);
-        b.location.setText(model.location);
-        b.city.setText(model.city);
-        b.numberofgasburners.setText(model.number_of_gas_burners);
+        b.idJobDetails.setText("ID: "+model.id);
+        b.nameJobDetails.setText("Name: "+model.name);
+        b.staff.setText("Staff Required: "+model.staff_required);
+        b.payment.setText("Payment: "+model.payment + "₹");
+        b.occasion.setText("Occasion Type: "+model.occasion_type);
+        b.partydate.setText("Date: "+model.date);
+        b.numberofpeople.setText("Number of people: "+model.number_of_people);
+        b.time.setText("Time: "+model.time);
+        b.numberofdishes.setText("No of dishes: "+model.no_of_dishes);
+        b.cuisinesList.setText("Cuisines: "+model.cuisines_list.toString());
+        b.dishtype.setText("Dish Type: "+model.dish_type);
+        b.partyaddress.setText("Party Address: "+model.party_address);
+        b.number.setText("Number: "+model.number);
+        b.location.setText("Location: "+model.location);
+        b.city.setText("City: "+model.city);
+        b.numberofgasburners.setText("No of gas burners: "+model.number_of_gas_burners);
         b.kitchenTools.setText(model.kitchen_tools_list.toString());
         b.breakfastmenu.setText(model.breakfast_items);
         b.lunchmenu.setText(model.lunch_items);

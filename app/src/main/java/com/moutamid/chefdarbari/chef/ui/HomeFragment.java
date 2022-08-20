@@ -75,7 +75,7 @@ public class HomeFragment extends Fragment {
         //int mNoOfColumns = calculateNoOfColumns(getApplicationContext(), 50);
         //  recyclerView.setLayoutManager(new GridLayoutManager(this, mNoOfColumns));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireContext());
-        //linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setReverseLayout(true);
         conversationRecyclerView.setLayoutManager(linearLayoutManager);
         conversationRecyclerView.setHasFixedSize(true);
         conversationRecyclerView.setNestedScrollingEnabled(false);
@@ -106,17 +106,19 @@ public class HomeFragment extends Fragment {
         public void onBindViewHolder(@NonNull final ViewHolderRightMessage holder, int position) {
             JobsAdminModel model = tasksArrayList.get(position);
 
-            holder.name.setText(model.name);
-            holder.id.setText("");
-            holder.staff_required.setText(model.staff_required);
-            holder.payment.setText(model.payment);
-            holder.occasion.setText(model.occasion_type);
-            holder.party_date.setText(model.party_address);
-            holder.number_of_people.setText(model.number_of_people);
-            holder.time.setText(model.time);
-            holder.number_of_dishes.setText(model.no_of_dishes);
-            holder.cuisines.setText(model.cuisines_list.toString());
-            holder.party_address.setText(model.party_address);
+            holder.name.setText("Name: " + model.name);
+
+            holder.id.setText("ID: " + model.id);
+
+            holder.staff_required.setText("Staff Required: " + model.staff_required);
+            holder.payment.setText("Payment: " + model.payment + "₹");
+            holder.occasion.setText("Occasion Type: " + model.occasion_type);
+            holder.party_date.setText("Party Address: " + model.party_address);
+            holder.number_of_people.setText("Number of people: " + model.number_of_people);
+            holder.time.setText("Time: " + model.time);
+            holder.number_of_dishes.setText("No of dishes: " + model.no_of_dishes);
+            holder.cuisines.setText("Cuisines: " + model.cuisines_list.toString());
+            holder.party_address.setText("Party Address: " + model.party_address);
 
             holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override

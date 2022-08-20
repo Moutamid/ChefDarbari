@@ -16,6 +16,8 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Objects;
+
 public class ChefNavigationActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -24,11 +26,10 @@ public class ChefNavigationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityChefNavigationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         setSupportActionBar(binding.appBarChefNavigation.toolbar);
+        Objects.requireNonNull(getSupportActionBar()).hide();
         /*binding.appBarChefNavigation.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

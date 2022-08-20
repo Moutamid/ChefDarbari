@@ -180,12 +180,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:text="Job Done" />
-
-        <androidx.appcompat.widget.AppCompatCheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
             android:text="Capture Video Feedback" />
 
         <androidx.appcompat.widget.AppCompatCheckBox

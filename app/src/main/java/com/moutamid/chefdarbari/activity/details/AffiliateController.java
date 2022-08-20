@@ -16,7 +16,7 @@ public class AffiliateController {
     }
 
     public boolean affiliateCheckEntries() {
-        if (b.checkboxAffiliate.isChecked()) {
+        if (!b.checkboxAffiliate.isChecked()) {
             toast("Please accept T&Cs!");
             return true;
         }

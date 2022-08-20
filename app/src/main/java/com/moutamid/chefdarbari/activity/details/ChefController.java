@@ -228,7 +228,7 @@ public class ChefController {
     }
 
     public boolean checkEntries() {
-        if (b.checkboxChef.isChecked()) {
+        if (!b.checkboxChef.isChecked()) {
             toast("Please accept T&Cs!");
             return true;
         }
@@ -360,30 +360,32 @@ public class ChefController {
         } else activity.chefUserModel.work_2_city = work2city;
 
         // URLs
-        if (activity.affiliateUserModel.ownerPhotoUrl.equals(Constants.NULL)) {
-            toast("Please upload owner photo!");
+        if (activity.chefUserModel.work_1_certificate.equals(Constants.NULL)) {
+            toast("Please upload work 1 certificate!");
             return true;
         }
-        if (activity.affiliateUserModel.ownerAadhaarCardUrl.equals(Constants.NULL)) {
-            toast("Please upload owner aadhaar card!");
+        if (activity.chefUserModel.work_2_certificate.equals(Constants.NULL)) {
+            toast("Please upload work 2 certificate!");
             return true;
         }
-        if (activity.affiliateUserModel.shopPhotoInsideurl.equals(Constants.NULL)) {
-            toast("Please upload shop inside photo!");
+        if (activity.chefUserModel.aadhaar_card_url.equals(Constants.NULL)) {
+            toast("Please upload aadhaar card!");
             return true;
         }
-        if (activity.affiliateUserModel.shopPhotoOutsideUrl.equals(Constants.NULL)) {
-            toast("Please upload shop outside photo!");
+        if (activity.chefUserModel.education_certificate_url.equals(Constants.NULL)) {
+            toast("Please upload education certificate!");
             return true;
         }
-        if (activity.affiliateUserModel.shopOwnerShipDocUrl.equals(Constants.NULL)) {
-            toast("Please upload shop ownership document photo!");
+        if (activity.chefUserModel.resume_url.equals(Constants.NULL)) {
+            toast("Please upload resume!");
+            return true;
+        } if (activity.chefUserModel.covid_vaccination_url.equals(Constants.NULL)) {
+            toast("Please upload covid vaccination doc!");
             return true;
         }
 
         return false;
     }
-
 
     public void toast(String mcg) {
         Toast.makeText(activity, mcg, Toast.LENGTH_SHORT).show();

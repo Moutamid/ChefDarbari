@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 
+import com.fxn.stash.Stash;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -67,8 +68,6 @@ public class DetailsActivity extends AppCompatActivity {
         affiliateUserModel.shopPhotoOutsideUrl = Constants.NULL;
         affiliateUserModel.shopOwnerShipDocUrl = Constants.NULL;
 
-
-
         b.accountTypeTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,6 +110,7 @@ public class DetailsActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     uploadChefData();
                                 } else {
+                                    progressDialog.dismiss();
                                     Toast.makeText(DetailsActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -131,6 +131,7 @@ public class DetailsActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 uploadAffiliateData();
                             } else {
+                                progressDialog.dismiss();
                                 Toast.makeText(DetailsActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -197,6 +198,7 @@ public class DetailsActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         progressDialog.dismiss();
                         if (task.isSuccessful()) {
+                            Stash.put(Constants.CURRENT_CHEF_MODEL, chefUserModel);
                             Toast.makeText(DetailsActivity.this, "Successful", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(DetailsActivity.this, ChefNavigationActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -218,6 +220,7 @@ public class DetailsActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         progressDialog.dismiss();
                         if (task.isSuccessful()) {
+                            Stash.put(Constants.CURRENT_AFFILIATE_MODEL, affiliateUserModel);
                             Toast.makeText(DetailsActivity.this, "Successful", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(DetailsActivity.this, AffiliateNavigationActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -268,7 +271,8 @@ public class DetailsActivity extends AppCompatActivity {
                     requestCode == CHEF_PROFESSIONAL_PHOTO_CODE ||
                     requestCode == CHEF_AADHAAR_CODE ||
                     requestCode == CHEF_EDUCATION_CERTIFICATE_CODE ||
-                    requestCode == CHEF_RESUME_CODE) {
+                    requestCode == CHEF_RESUME_CODE ||
+                    requestCode == CHEF_COVID_CERTIFICATE_CODE) {
 
                 Uri imageUri = data.getData();
 
@@ -305,11 +309,11 @@ public class DetailsActivity extends AppCompatActivity {
                                     b.shopPhotoOutsideTextAffiliate.setText(imageUri.getLastPathSegment());
                                 }
                                 if (requestCode == CHEF_EXPERIENCE_1_PHOTO_CODE) {
-                                    chefUserModel.work_1_worked_years = photoUrl.toString();
+                                    chefUserModel.work_1_certificate = photoUrl.toString();
                                     b.workEx1ExperienceCertificateTextviewUrlChef.setText(imageUri.getLastPathSegment());
                                 }
                                 if (requestCode == CHEF_EXPERIENCE_2_PHOTO_CODE) {
-                                    chefUserModel.work_2_worked_years = photoUrl.toString();
+                                    chefUserModel.work_2_certificate = photoUrl.toString();
                                     b.workEx2ExperienceCertificateTextviewChef.setText(imageUri.getLastPathSegment());
                                 }
                                 if (requestCode == CHEF_PROFESSIONAL_PHOTO_CODE) {

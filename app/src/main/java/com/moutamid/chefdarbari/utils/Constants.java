@@ -43,6 +43,8 @@ public class Constants {
     public static final String NEW_PARTY_BOOKINGS = "NEW_PARTY_BOOKINGS";
     public static final String CURRENT_JOB_MODEL = "CURRENT_JOB_MODEL";
     public static final String USER_TYPE = "USER_TYPE";
+    public static final String CURRENT_CHEF_MODEL = "CURRENT_CHEF_MODEL";
+    public static final String CURRENT_AFFILIATE_MODEL = "CURRENT_AFFILIATE_MODEL";
 
     public static FirebaseAuth auth() {
         return FirebaseAuth.getInstance();

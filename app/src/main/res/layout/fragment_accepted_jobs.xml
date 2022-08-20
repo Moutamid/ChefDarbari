@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".chef.ui.AcceptedJobsFragment">
+
     <RelativeLayout
         android:id="@+id/topi"
         android:layout_width="match_parent"
@@ -12,33 +13,35 @@
 
         <ImageView
             android:id="@+id/iii"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
             android:src="@drawable/logoo" />
 
         <TextView
             android:id="@+id/topText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
+            android:layout_marginEnd="5dp"
+            android:layout_toStartOf="@id/iii"
+            android:autoSizeTextType="uniform"
+            android:breakStrategy="balanced"
+            android:gravity="start"
             android:text="Accepted Bookings"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
     </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
-        android:layout_below="@id/topi"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topi">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,8 +51,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/acceptedJobsRecyclerview"
                 android:layout_width="match_parent"
-                tools:listitem="@layout/accepted_jobs_item"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/accepted_jobs_item" />
 
             <View
                 android:layout_width="match_parent"

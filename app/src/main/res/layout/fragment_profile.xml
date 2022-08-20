@@ -13,26 +13,28 @@
 
         <ImageView
             android:id="@+id/iii"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
             android:src="@drawable/logoo" />
 
         <TextView
             android:id="@+id/topText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
+            android:layout_marginEnd="5dp"
+            android:layout_toStartOf="@id/iii"
+            android:autoSizeTextType="uniform"
+            android:breakStrategy="balanced"
+            android:gravity="start"
             android:text="Profile"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
     </RelativeLayout>
 
@@ -41,963 +43,1019 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/topi">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/chefCardView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="2dp"
-            app:cardElevation="10dp">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/chefCardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/bg_number"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
+                    android:orientation="vertical">
 
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Name"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/bg_number"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
 
-                </LinearLayout>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:id="@+id/name_et_chef"
+                            android:background="@color/white"
+                            android:hint="Name"
+                            android:textSize="20sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
+                    </LinearLayout>
 
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Phone Number"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
 
-                </LinearLayout>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:id="@+id/number_et_chef"
+                            android:background="@color/white"
+                            android:hint="Phone Number"
+                            android:textSize="20sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
+                    </LinearLayout>
 
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Whatsapp Number"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
 
-                </LinearLayout>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:id="@+id/whatsapp_et_chef"
+                            android:hint="Whatsapp Number"
+                            android:textSize="20sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
+                    </LinearLayout>
 
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Email Address"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
 
-                </LinearLayout>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/email_et_chef"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="Email Address"
+                            android:textSize="20sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
+                    </LinearLayout>
 
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Password"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
 
-                </LinearLayout>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:id="@+id/password_et_chef"
+                            android:hint="Password"
+                            android:textSize="20sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
+                    </LinearLayout>
 
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Re Enter Password"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
 
-                </LinearLayout>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:id="@+id/confirm_password_et_chef"
+                            android:hint="Re Enter Password"
+                            android:textSize="20sp" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:padding="15dp">
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/city_popup_layout_chef"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:padding="15dp">
+
+                        <TextView
+                            android:id="@+id/city_textview_chef"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="City"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:id="@+id/home_town_et_chef"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="Home Town"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/language_layout_chef"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:padding="15dp">
+
+                        <TextView
+                            android:id="@+id/language_textview_chef"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="Language Speak"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:id="@+id/age_layout_chef"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:padding="15dp">
+
+                        <TextView
+                            android:id="@+id/age_textview_chef"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="Age"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:id="@+id/education_layout_chef"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:padding="15dp">
+
+                        <TextView
+                            android:id="@+id/education_textview_chef"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="Highest Education"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+                    </RelativeLayout>
+
 
                     <TextView
-                        android:id="@+id/cityTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="City"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        android:text="Expert in:"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
-                </RelativeLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
-
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Home Town"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:orientation="horizontal">
 
-                </LinearLayout>
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:id="@+id/indian_expert_cheff"
+                            android:layout_height="wrap_content"
+                            android:text="Indian" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:padding="15dp">
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tandoor_expert_cheff"
+                            android:layout_marginStart="20dp"
+                            android:text="Tandoor" />
 
-                    <TextView
-                        android:id="@+id/languageTv"
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/mughlai_expert_cheff"
+                            android:layout_marginStart="20dp"
+                            android:text="Mughlai" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Language Speak"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
-                </RelativeLayout>
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/continental_expert_cheff"
+                            android:text="Continental" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:padding="15dp">
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chaat_expert_cheff"
+                            android:layout_marginStart="20dp"
+                            android:text="Chaat" />
 
-                    <TextView
-                        android:id="@+id/ageTv"
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/asian_expert_cheff"
+                            android:layout_marginStart="20dp"
+                            android:text="Asian" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Age"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
-                </RelativeLayout>
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/pantry_expert_cheff"
+                            android:text="Pantry" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:padding="15dp">
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/chinese_expert_cheff"
+                            android:layout_marginStart="20dp"
+                            android:text="Chinese" />
 
-                    <TextView
-                        android:id="@+id/education"
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:id="@+id/italian_expert_cheff"
+                            android:text="Italian" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Highest Education"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
-                </RelativeLayout>
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:id="@+id/mexican_expert_cheff"
+                            android:layout_height="wrap_content"
+                            android:text="Mexican" />
 
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:id="@+id/thai_expert_cheff"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:text="Thai" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Expert in:"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/japanese_expert_cheff"
+                            android:layout_marginStart="20dp"
+                            android:text="Japanese" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:orientation="horizontal">
+                    </LinearLayout>
 
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Indian" />
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:text="Tandoor" />
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:text="Mughlai" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:orientation="horizontal">
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Continental" />
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:text="Chaat" />
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:text="Asian" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:orientation="horizontal">
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Pantry" />
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:text="Chinese" />
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:text="Italian" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:orientation="horizontal">
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Mexican" />
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:text="Thai" />
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:text="Japanese" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:orientation="horizontal">
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Lebanese" />
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:text="Pastry" />
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:text="Bakery" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:orientation="horizontal">
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Drinks (Bartender)" />
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:text="Serving (Waiter)" />
-
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:padding="15dp">
-
-                    <TextView
-                        android:id="@+id/post"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Post"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
-                </RelativeLayout>
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/lebanese_expert_cheff"
+                            android:text="Lebanese" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:padding="15dp">
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/pastry_expert_cheff"
+                            android:layout_marginStart="20dp"
+                            android:text="Pastry" />
 
-                    <TextView
-                        android:id="@+id/experience"
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:id="@+id/bakery_expert_cheff"
+                            android:text="Bakery" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Total Experience"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
-                </RelativeLayout>
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/drinks_bartender_expert_cheff"
+                            android:text="Drinks (Bartender)" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:padding="15dp">
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:id="@+id/serving_waiter_expert_cheff"
+                            android:text="Serving (Waiter)" />
 
-                    <TextView
-                        android:id="@+id/vehicle"
+                    </LinearLayout>
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Do You Have a Vehicle?"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/post_layout_cheff"
+                        android:background="@drawable/bg_number"
+                        android:padding="15dp">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
-                </RelativeLayout>
+                        <TextView
+                            android:id="@+id/post_textview_cheff"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="Post"
+                            android:textSize="20sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+                    </RelativeLayout>
 
-                    <EditText
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Monthly Salary Rs."
-                        android:inputType="number"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/experience_layout_chef"
+                        android:background="@drawable/bg_number"
+                        android:padding="15dp">
 
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/experience_textview_chef"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="Total Experience"
+                            android:textSize="20sp" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:padding="15dp">
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+                    </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/physical"
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Physical Status"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/vehicle_layout_chef"
+                        android:background="@drawable/bg_number"
+                        android:padding="15dp">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
-                </RelativeLayout>
+                        <TextView
+                            android:id="@+id/vehicle_textview_chef"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="Do You Have a Vehicle?"
+                            android:textSize="20sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:gravity="center"
-                    android:text="Work Experience (1)"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+                    </RelativeLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
-
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Hotel/Restaurant Name"
-                        android:inputType="number"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
 
-                </LinearLayout>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="Monthly Salary Rs."
+                            android:id="@+id/monthly_salary_et_chef"
+                            android:inputType="number"
+                            android:textSize="20sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
+                    </LinearLayout>
 
-                    <EditText
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Post"
-                        android:inputType="number"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/physical_layout_chef"
+                        android:background="@drawable/bg_number"
+                        android:padding="15dp">
 
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/physical_textview_chef"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="Physical Status"
+                            android:textSize="20sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="City"
-                        android:inputType="number"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:padding="15dp">
-
-                    <TextView
-                        android:id="@+id/workyear1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Worked here for"
-                        android:textSize="20sp" />
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:text="Upload"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_baseline_cloud_upload_24" />
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+                    </RelativeLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:text="Experience/Joining Certificate"
-                        android:textColor="@color/black" />
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:gravity="center"
+                        android:text="Work Experience (1)"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:gravity="center"
-                    android:text="Work Experience (2)"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
-
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Hotel/Restaurant Name"
-                        android:inputType="number"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
 
-                </LinearLayout>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="Hotel/Restaurant Name"
+                            android:id="@+id/work_1_exhotel_name_et_chef"
+                            android:textSize="20sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
+                    </LinearLayout>
 
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Post"
-                        android:inputType="number"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
 
-                </LinearLayout>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="Post"
+                            android:id="@+id/work_ex_1_post_et_cheff"
+                            android:textSize="20sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
+                    </LinearLayout>
 
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="City"
-                        android:inputType="number"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
 
-                </LinearLayout>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="City"
+                            android:id="@+id/work_ex_1_city_et_chef"
+                            android:textSize="20sp" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/bg_number"
-                    android:padding="15dp">
+                    </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/workyear2"
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="5dp"
-                        android:background="@color/white"
-                        android:hint="Worked here for"
-                        android:textSize="20sp" />
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:id="@+id/work_ex_1_worked_year_layout_chef"
+                        android:padding="15dp">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
-                </RelativeLayout>
+                        <TextView
+                            android:id="@+id/work_ex_1_worked_year_textview_chef"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="Worked here for"
+                            android:textSize="20sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:text="Upload"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+                    </RelativeLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:text="Upload"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_baseline_cloud_upload_24" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center_vertical"
+                        android:id="@+id/work_ex_1_experience_certificate_layout_url_chef"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_baseline_cloud_upload_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:id="@+id/work_ex_1_experience_certificate_textview_url_chef"
+                            android:text="Experience/Joining Certificate"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:text="Experience/Joining Certificate"
-                        android:textColor="@color/black" />
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:gravity="center"
+                        android:text="Work Experience (2)"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-                </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Documents Upload"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="Hotel/Restaurant Name"
+                            android:id="@+id/work_ex_2_hotel_name_et_chef"
+                            android:textSize="20sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_baseline_cloud_upload_24" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="Post"
+                            android:id="@+id/work_ex_2_post_et_chef"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_number"
+                        android:orientation="horizontal"
+                        android:padding="15dp">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="City"
+                            android:id="@+id/work_ex_2_city_et_chef"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/work_ex_2_worked_year_layout_chef"
+                        android:background="@drawable/bg_number"
+                        android:padding="15dp">
+
+                        <TextView
+                            android:id="@+id/work_ex_2_worked_year_textview_chef"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="5dp"
+                            android:background="@color/white"
+                            android:hint="Worked here for"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+                    </RelativeLayout>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:text="Upload Your Professional Photo"
-                        android:textColor="@color/black" />
+                        android:text="Upload"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-                </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/work_ex_2_experience_certificate_layout_chef"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_baseline_cloud_upload_24" />
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_baseline_cloud_upload_24" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:id="@+id/work_ex_2_experience_certificate_textview_chef"
+                            android:text="Experience/Joining Certificate"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:text="Upload Aadhaar"
-                        android:textColor="@color/black" />
+                        android:layout_marginTop="20dp"
+                        android:text="Documents Upload"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center_vertical"
+                        android:id="@+id/work_ex_2_professional_photo_layout_chef"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_baseline_cloud_upload_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/work_ex_2_professional_photo_textview_chef"
+                            android:layout_marginStart="20dp"
+                            android:text="Upload Your Professional Photo"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/work_ex_2_aadhaar_photo_layout_chef"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_baseline_cloud_upload_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:id="@+id/work_ex_2_aadhaar_photo_textview_chef"
+                            android:text="Upload Aadhaar"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/work_ex_2_education_certificate_layout_chef"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_baseline_cloud_upload_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/work_ex_2_education_certificate_textview_chef"
+                            android:layout_marginStart="20dp"
+                            android:text="Upload Education Certificate"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/work_ex_2_resume_layout_chef"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_baseline_cloud_upload_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:text="Upload Resume"
+                            android:id="@+id/work_ex_2_resume_textview_chef"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        android:id="@+id/work_ex_2_covid_certificate_layout_chef"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_baseline_cloud_upload_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/work_ex_2_covid_certificate_textview_chef"
+                            android:layout_marginStart="20dp"
+                            android:text="Upload Covid Vaccination Certificate"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:layout_width="wrap_content"
+                        android:id="@+id/checkbox_chef"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        android:text="I agree to Terms and conditions" />
+
+                    <Button
+                        android:id="@+id/submitBtnChef"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="40dp"
+                        android:backgroundTint="@color/default_yellow"
+                        android:text="Update"
+                        android:textColor="@color/white" />
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+            </com.google.android.material.card.MaterialCardView>
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_baseline_cloud_upload_24" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:text="Upload Education Certificate"
-                        android:textColor="@color/black" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_baseline_cloud_upload_24" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:text="Upload Resume"
-                        android:textColor="@color/black" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_baseline_cloud_upload_24" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:text="Upload Covid Vaccination Certificate"
-                        android:textColor="@color/black" />
-
-                </LinearLayout>
-
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="20dp"
-                    android:text="I agree to Terms and conditions" />
-
-                <Button
-                    android:id="@+id/submitBtnChef"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginBottom="40dp"
-                    android:backgroundTint="@color/default_yellow"
-                    android:text="Register"
-                    android:textColor="@color/white" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
 </RelativeLayout>
