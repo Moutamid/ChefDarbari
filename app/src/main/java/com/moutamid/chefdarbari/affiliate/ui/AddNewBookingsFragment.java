@@ -29,6 +29,7 @@ public class AddNewBookingsFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         b = FragmentAddNewBookingsBinding.inflate(inflater, container, false);
         View root = b.getRoot();
+        if (!isAdded()) return b.getRoot();
 
         progressDialog = new ProgressDialog(requireContext());
         progressDialog.setCancelable(false);

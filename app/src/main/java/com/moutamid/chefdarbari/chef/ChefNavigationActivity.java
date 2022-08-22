@@ -6,8 +6,10 @@ import android.view.Menu;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.moutamid.chefdarbari.R;
 import com.moutamid.chefdarbari.databinding.ActivityChefNavigationBinding;
+import com.moutamid.chefdarbari.utils.Constants;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -30,13 +32,9 @@ public class ChefNavigationActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBarChefNavigation.toolbar);
         Objects.requireNonNull(getSupportActionBar()).hide();
-        /*binding.appBarChefNavigation.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
+
+        FirebaseMessaging.getInstance().subscribeToTopic(Constants.CHEF_NOTIFICATIONS);
+
         DrawerLayout drawer = binding.drawerLayoutChef;
         binding.appBarChefNavigation.chefMenuBtn.setOnClickListener(v -> {
             if (drawer.isOpen())

@@ -33,6 +33,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         b = FragmentHomeBinding.inflate(inflater, container, false);
         View root = b.getRoot();
+        if (!isAdded()) return b.getRoot();
 
         Constants.databaseReference()
                 .child(Constants.ADMIN_BOOKINGS)
@@ -106,6 +107,13 @@ public class HomeFragment extends Fragment {
         public void onBindViewHolder(@NonNull final ViewHolderRightMessage holder, int position) {
             JobsAdminModel model = tasksArrayList.get(position);
 
+            if (model.job_open) {
+                holder.jobOpen.setText("Open Job");
+                holder.jobOpen.setBackgroundColor(getResources().getColor(R.color.lightgreen));
+            } else {
+                holder.jobOpen.setText("Closed");
+                holder.jobOpen.setBackgroundColor(getResources().getColor(R.color.red));
+            }
             holder.name.setText("Name: " + model.name);
 
             holder.id.setText("ID: " + model.id);
@@ -113,7 +121,7 @@ public class HomeFragment extends Fragment {
             holder.staff_required.setText("Staff Required: " + model.staff_required);
             holder.payment.setText("Payment: " + model.payment + "₹");
             holder.occasion.setText("Occasion Type: " + model.occasion_type);
-            holder.party_date.setText("Party Address: " + model.party_address);
+            holder.party_date.setText("Party Date: " + model.date);
             holder.number_of_people.setText("Number of people: " + model.number_of_people);
             holder.time.setText("Time: " + model.time);
             holder.number_of_dishes.setText("No of dishes: " + model.no_of_dishes);
@@ -140,12 +148,13 @@ public class HomeFragment extends Fragment {
 
             TextView name, id, staff_required, payment,
                     occasion, party_date, number_of_people, time,
-                    number_of_dishes, cuisines, party_address;
+                    number_of_dishes, cuisines, party_address, jobOpen;
             CardView cardView;
 
             public ViewHolderRightMessage(@NonNull View v) {
                 super(v);
                 name = v.findViewById(R.id.name_new_jobs_item);
+                jobOpen = v.findViewById(R.id.job_status_my_job_item);
                 id = v.findViewById(R.id.id_number_new_jobs_item);
                 staff_required = v.findViewById(R.id.staff_required_new_jobs_item);
                 payment = v.findViewById(R.id.payment_new_jobs_item);

@@ -18,6 +18,8 @@ public class CustomerItemsFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         b = FragmentCustomerItemsBinding.inflate(inflater, container, false);
         View root = b.getRoot();
+        if (!isAdded()) return b.getRoot();
+
         return root;
     }
 }

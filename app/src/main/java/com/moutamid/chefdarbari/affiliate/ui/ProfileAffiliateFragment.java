@@ -38,6 +38,7 @@ public class ProfileAffiliateFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         b = FragmentProfileAffiliateBinding.inflate(inflater, container, false);
         View root = b.getRoot();
+        if (!isAdded()) return b.getRoot();
 
         b.accountTypeTv.setOnClickListener(new View.OnClickListener() {
             @Override

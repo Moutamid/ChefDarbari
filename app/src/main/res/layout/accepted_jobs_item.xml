@@ -14,16 +14,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
-            android:layout_height="wrap_content">
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
             <TextView
+                android:id="@+id/name_accepted_jobs"
                 android:layout_width="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
@@ -33,137 +33,112 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/id_number_accepted_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="ID Number"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
 
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
             <TextView
+                android:id="@+id/staff_required_accepted_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
                 android:text="Staff required"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/payment_accepted_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="Payment Rs"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:textSize="13sp" />
 
 
             <TextView
+                android:id="@+id/occasion_accepted_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="Occasion"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/party_date_accepted_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="Party Date"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:textSize="13sp" />
 
 
             <TextView
+                android:id="@+id/number_of_people_accepted_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="Number of People"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/time_accepted_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="Time"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:textSize="13sp" />
 
 
             <TextView
+                android:id="@+id/number_of_dishes_accepted_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="No. of Dishes"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/cuisines_accepted_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="Cuisines"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
 
+            <TextView
+                android:id="@+id/party_address_accepted_jobs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:text="Party address"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
 
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:text="Party address"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
@@ -172,12 +147,14 @@
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:layout_width="match_parent"
+            android:id="@+id/payment_received_accepted_jobs"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:text="Payment Received" />
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:layout_width="match_parent"
+            android:id="@+id/capture_video_accepted_jobs"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:text="Capture Video Feedback" />
@@ -185,6 +162,7 @@
         <androidx.appcompat.widget.AppCompatCheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/job_completed_accepted_jobs"
             android:layout_marginHorizontal="20dp"
             android:text="Job Completed" />
 
@@ -192,6 +170,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
+            android:id="@+id/mark_as_complete_btn_accepted_jobs"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:backgroundTint="@color/default_yellow"

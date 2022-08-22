@@ -86,6 +86,7 @@
                             android:layout_weight="1"
                             android:background="@color/lightgreen"
                             android:gravity="center"
+                            android:id="@+id/job_status_job_details"
                             android:padding="10dp"
                             android:text="Open Job"
                             android:textColor="@color/black"

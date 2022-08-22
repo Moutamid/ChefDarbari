@@ -45,6 +45,10 @@ public class Constants {
     public static final String USER_TYPE = "USER_TYPE";
     public static final String CURRENT_CHEF_MODEL = "CURRENT_CHEF_MODEL";
     public static final String CURRENT_AFFILIATE_MODEL = "CURRENT_AFFILIATE_MODEL";
+    public static final String ACCEPTED_JOBS = "ACCEPTED_JOBS";
+    public static final String COMPLETED_JOBS = "COMPLETED_JOBS";
+    public static final String ADMIN_NOTIFICATIONS = "admin_notifications";
+    public static final String CHEF_NOTIFICATIONS = "chef_notifications";
 
     public static FirebaseAuth auth() {
         return FirebaseAuth.getInstance();

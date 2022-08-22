@@ -32,6 +32,7 @@ public class MyBookingsFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         b = FragmentMyBookingsBinding.inflate(inflater, container, false);
         View root = b.getRoot();
+        if (!isAdded()) return b.getRoot();
 
         Constants.databaseReference()
                 .child(Constants.auth().getUid())

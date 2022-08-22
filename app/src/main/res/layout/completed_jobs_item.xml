@@ -41,16 +41,18 @@
             android:layout_height="1dp"
             android:background="@color/grey" />
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
-            android:layout_height="wrap_content">
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
 
             <TextView
+                android:id="@+id/name_completed_jobs"
                 android:layout_width="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="Name"
@@ -59,35 +61,32 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/id_number_completed_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="ID Number"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
 
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
             <TextView
+                android:id="@+id/staff_required_completed_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
                 android:text="Staff required"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/payment_completed_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -96,26 +95,21 @@
                 android:layout_marginTop="10dp"
                 android:text="Payment Rs"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:textSize="13sp" />
 
 
             <TextView
+                android:id="@+id/occasion_completed_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="Occasion"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/party_date_completed_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -123,26 +117,21 @@
                 android:layout_marginTop="10dp"
                 android:text="Party Date"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:textSize="13sp" />
 
 
             <TextView
+                android:id="@+id/number_of_people_completed_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="Number of People"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/time_completed_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -150,26 +139,21 @@
                 android:layout_marginTop="10dp"
                 android:text="Time"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:textSize="13sp" />
 
 
             <TextView
+                android:id="@+id/number_of_dishes_completed_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:text="No. of Dishes"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/cuisines_completed_jobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -177,20 +161,20 @@
                 android:layout_marginTop="10dp"
                 android:text="Cuisines"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="13sp" />
 
+            <TextView
+                android:id="@+id/party_address_completed_jobs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:text="Party address"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
 
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:text="Party address"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
+        </LinearLayout>
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

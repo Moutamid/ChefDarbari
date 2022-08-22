@@ -19,7 +19,9 @@ public class ShowIDFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         b = FragmentShowIdBinding.inflate(inflater, container, false);
         View root = b.getRoot();
- return root;
+        if (!isAdded()) return b.getRoot();
+
+        return root;
     }
 
 

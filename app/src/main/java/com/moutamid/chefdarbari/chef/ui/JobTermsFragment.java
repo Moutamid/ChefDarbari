@@ -19,6 +19,8 @@ public class JobTermsFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         b = FragmentJobTermsBinding.inflate(inflater, container, false);
         View root = b.getRoot();
+        if (!isAdded()) return b.getRoot();
+
         return root;
     }
 
