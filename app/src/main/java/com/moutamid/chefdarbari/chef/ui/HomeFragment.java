@@ -2,6 +2,7 @@ package com.moutamid.chefdarbari.chef.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +34,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         b = FragmentHomeBinding.inflate(inflater, container, false);
         View root = b.getRoot();
-        if (!isAdded()) return b.getRoot();
-
+        if (!isAdded())  return b.getRoot();
         Constants.databaseReference()
                 .child(Constants.ADMIN_BOOKINGS)
                 .addValueEventListener(new ValueEventListener() {
@@ -42,13 +42,14 @@ public class HomeFragment extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.exists()) {
                             tasksArrayList.clear();
-
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                                 JobsAdminModel adminModel = dataSnapshot.getValue(JobsAdminModel.class);
                                 adminModel.push_key = dataSnapshot.getKey();
                                 tasksArrayList.add(adminModel);
                             }
                             initRecyclerView();
+                        } else {
+                            Toast.makeText(requireContext(), "no data", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -114,19 +115,20 @@ public class HomeFragment extends Fragment {
                 holder.jobOpen.setText("Closed");
                 holder.jobOpen.setBackgroundColor(getResources().getColor(R.color.red));
             }
-            holder.name.setText("Name: " + model.name);
+            holder.name.setText(Html.fromHtml(Constants.BOLD_START + "Customer Name: " + Constants.BOLD_END + model.name));
 
-            holder.id.setText("ID: " + model.id);
+            holder.id.setText(Html.fromHtml(Constants.BOLD_START + "Job Id: " + Constants.BOLD_END + model.id));
 
-            holder.staff_required.setText("Staff Required: " + model.staff_required);
-            holder.payment.setText("Payment: " + model.payment + "₹");
-            holder.occasion.setText("Occasion Type: " + model.occasion_type);
-            holder.party_date.setText("Party Date: " + model.date);
-            holder.number_of_people.setText("Number of people: " + model.number_of_people);
-            holder.time.setText("Time: " + model.time);
-            holder.number_of_dishes.setText("No of dishes: " + model.no_of_dishes);
-            holder.cuisines.setText("Cuisines: " + model.cuisines_list.toString());
-            holder.party_address.setText("Party Address: " + model.party_address);
+            holder.staff_required.setText(Html.fromHtml(Constants.BOLD_START + "Staff Required: " + Constants.BOLD_END + model.staff_required));
+            holder.payment.setText(Html.fromHtml(Constants.BOLD_START + "Payment: " + Constants.BOLD_END + "₹"+model.payment));
+            holder.occasion.setText(Html.fromHtml(Constants.BOLD_START + "Occasion Type: " + Constants.BOLD_END + model.occasion_type));
+            holder.party_date.setText(Html.fromHtml(Constants.BOLD_START + "Party Date: " + Constants.BOLD_END + model.date));
+            holder.number_of_people.setText(Html.fromHtml(Constants.BOLD_START + "Number of people: " + Constants.BOLD_END + model.number_of_people));
+            holder.time.setText(Html.fromHtml(Constants.BOLD_START + "Time: " + Constants.BOLD_END + model.time));
+            holder.number_of_dishes.setText(Html.fromHtml(Constants.BOLD_START + "No of dishes: " + Constants.BOLD_END + model.no_of_dishes));
+            holder.cuisines.setText(Html.fromHtml(Constants.BOLD_START + "Cuisines: " + Constants.BOLD_END + model.cuisines_list.toString()));
+            holder.party_address.setText(Html.fromHtml(Constants.BOLD_START + "Party Address: " + Constants.BOLD_END + model.party_address));
+            holder.city.setText(model.city);
 
             holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -148,11 +150,12 @@ public class HomeFragment extends Fragment {
 
             TextView name, id, staff_required, payment,
                     occasion, party_date, number_of_people, time,
-                    number_of_dishes, cuisines, party_address, jobOpen;
+                    number_of_dishes, cuisines, party_address, jobOpen, city;
             CardView cardView;
 
             public ViewHolderRightMessage(@NonNull View v) {
                 super(v);
+                city = v.findViewById(R.id.city_name_my_job_item);
                 name = v.findViewById(R.id.name_new_jobs_item);
                 jobOpen = v.findViewById(R.id.job_status_my_job_item);
                 id = v.findViewById(R.id.id_number_new_jobs_item);

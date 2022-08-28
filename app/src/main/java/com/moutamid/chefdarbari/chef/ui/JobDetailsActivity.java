@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Toast;
 
@@ -47,22 +48,22 @@ public class JobDetailsActivity extends AppCompatActivity {
             b.acceptJobBtn.setVisibility(View.GONE);
         }
 
-        b.idJobDetails.setText("ID: " + model.id);
-        b.nameJobDetails.setText("Name: " + model.name);
-        b.staff.setText("Staff Required: " + model.staff_required);
-        b.payment.setText("Payment: " + model.payment + "₹");
-        b.occasion.setText("Occasion Type: " + model.occasion_type);
-        b.partydate.setText("Date: " + model.date);
-        b.numberofpeople.setText("Number of people: " + model.number_of_people);
-        b.time.setText("Time: " + model.time);
-        b.numberofdishes.setText("No of dishes: " + model.no_of_dishes);
-        b.cuisinesList.setText("Cuisines: " + model.cuisines_list.toString());
-        b.dishtype.setText("Dish Type: " + model.dish_type);
-        b.partyaddress.setText("Party Address: " + model.party_address);
-        b.number.setText("Number: " + model.number);
-        b.location.setText("Location: " + model.location);
-        b.city.setText("City: " + model.city);
-        b.numberofgasburners.setText("No of gas burners: " + model.number_of_gas_burners);
+        b.idJobDetails.setText(Html.fromHtml(Constants.BOLD_START + "Job Id: " + Constants.BOLD_END + model.id));
+        b.nameJobDetails.setText(Html.fromHtml(Constants.BOLD_START + "Customer Name: " + Constants.BOLD_END + model.name));
+        b.staff.setText(Html.fromHtml(Constants.BOLD_START + "Staff Required: " + Constants.BOLD_END + model.staff_required));
+        b.payment.setText(Html.fromHtml(Constants.BOLD_START + "Payment: " + Constants.BOLD_END + "₹"+model.payment));
+        b.occasion.setText(Html.fromHtml(Constants.BOLD_START + "Occasion Type: " + Constants.BOLD_END + model.occasion_type));
+        b.partydate.setText(Html.fromHtml(Constants.BOLD_START + "Date: " + Constants.BOLD_END + model.date));
+        b.numberofpeople.setText(Html.fromHtml(Constants.BOLD_START + "Number of people: " + Constants.BOLD_END + model.number_of_people));
+        b.time.setText(Html.fromHtml(Constants.BOLD_START + "Time: " + Constants.BOLD_END + model.time));
+        b.numberofdishes.setText(Html.fromHtml(Constants.BOLD_START + "No of dishes: " + Constants.BOLD_END + model.no_of_dishes));
+        b.cuisinesList.setText(model.cuisines_list.toString());
+        b.dishtype.setText(Html.fromHtml(Constants.BOLD_START + "Dish Type: " + Constants.BOLD_END + model.dish_type));
+        b.partyaddress.setText(Html.fromHtml(Constants.BOLD_START + "Party Address: " + Constants.BOLD_END + model.party_address));
+        b.number.setText(Html.fromHtml(Constants.BOLD_START + "Number: " + Constants.BOLD_END + model.number));
+        b.location.setText(Html.fromHtml(Constants.BOLD_START + "Location: " + Constants.BOLD_END + model.location));
+        b.city.setText(Html.fromHtml(Constants.BOLD_START + "City: " + Constants.BOLD_END + model.city));
+        b.numberofgasburners.setText(Html.fromHtml(Constants.BOLD_START + "No of gas burners: " + Constants.BOLD_END + model.number_of_gas_burners));
         b.kitchenTools.setText(model.kitchen_tools_list.toString());
         b.breakfastmenu.setText(model.breakfast_items);
         b.lunchmenu.setText(model.lunch_items);
@@ -129,6 +130,7 @@ public class JobDetailsActivity extends AppCompatActivity {
         jobsAdminModel2.push_key = model.push_key;
         jobsAdminModel2.nameChef = chefUserModel.name;
         jobsAdminModel2.uidChef = Constants.auth().getUid();
+        jobsAdminModel2.post = chefUserModel.post;
         jobsAdminModel2.numberChef = chefUserModel.number;
         jobsAdminModel2.expertInChef = chefUserModel.expertInList.toString();
         jobsAdminModel2.highestQualificationChef = chefUserModel.highest_education;

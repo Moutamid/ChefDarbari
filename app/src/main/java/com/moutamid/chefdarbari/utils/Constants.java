@@ -49,6 +49,9 @@ public class Constants {
     public static final String COMPLETED_JOBS = "COMPLETED_JOBS";
     public static final String ADMIN_NOTIFICATIONS = "admin_notifications";
     public static final String CHEF_NOTIFICATIONS = "chef_notifications";
+    public static final String BOLD_START = "<b>";
+    public static final String BOLD_END = "</b>";
+//    public static final String BOLD_TYPE = "text/html; charset=utf-8";
 
     public static FirebaseAuth auth() {
         return FirebaseAuth.getInstance();

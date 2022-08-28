@@ -47,7 +47,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         b = FragmentProfileBinding.inflate(inflater, container, false);
         View root = b.getRoot();
-        if (!isAdded()) return root;
+        if (!isAdded()) return b.getRoot();
 
         chefUserModel = (ChefUserModel) Stash.getObject(Constants.CURRENT_CHEF_MODEL, ChefUserModel.class);
 
@@ -58,7 +58,6 @@ public class ProfileFragment extends Fragment {
             getDetails();
         else
             initOnCreateMethod();
-
 
 
         return root;
@@ -295,19 +294,19 @@ public class ProfileFragment extends Fragment {
                     return;
                 }
                 progressDialog.show();
-                Constants.auth().createUserWithEmailAndPassword(
+                /*Constants.auth().createUserWithEmailAndPassword(
                                 chefUserModel.email, chefUserModel.password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    uploadChefData();
-                                } else {
+                                if (task.isSuccessful()) {*/
+                uploadChefData();
+                       /*         } else {
                                     progressDialog.dismiss();
                                     Toast.makeText(requireContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
-                        });
+                        });*/
             }
         });
 

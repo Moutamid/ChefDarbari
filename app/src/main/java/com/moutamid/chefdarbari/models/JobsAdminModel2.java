@@ -9,7 +9,7 @@ public class JobsAdminModel2 {
             snack_items, push_key;
     public boolean job_open;
     public String nameChef, uidChef, numberChef, expertInChef, highestQualificationChef,
-            experienceYearsChef;
+            experienceYearsChef, post;
     public ArrayList<String> kitchen_tools_list = new ArrayList<>();
     public ArrayList<String> cuisines_list = new ArrayList<>();
 

@@ -2,7 +2,9 @@ package com.moutamid.chefdarbari.chef.ui;
 
 import static android.view.LayoutInflater.from;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +26,7 @@ import com.moutamid.chefdarbari.R;
 import com.moutamid.chefdarbari.databinding.FragmentAcceptedJobsBinding;
 import com.moutamid.chefdarbari.models.JobsAdminModel;
 import com.moutamid.chefdarbari.models.JobsAdminModel2;
+import com.moutamid.chefdarbari.notifications.FcmNotificationsSender;
 import com.moutamid.chefdarbari.utils.Constants;
 
 import java.util.ArrayList;
@@ -78,8 +81,8 @@ public class AcceptedJobsFragment extends Fragment {
 //    int numberOfColumns = 3;
         //int mNoOfColumns = calculateNoOfColumns(getApplicationContext(), 50);
         //  recyclerView.setLayoutManager(new GridLayoutManager(this, mNoOfColumns));
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireContext());
-        //linearLayoutManager.setReverseLayout(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireActivity());
+        linearLayoutManager.setReverseLayout(true);
         conversationRecyclerView.setLayoutManager(linearLayoutManager);
         conversationRecyclerView.setHasFixedSize(true);
         conversationRecyclerView.setNestedScrollingEnabled(false);
@@ -116,19 +119,20 @@ public class AcceptedJobsFragment extends Fragment {
         public void onBindViewHolder(@NonNull final ViewHolderRightMessage holder, int position) {
             JobsAdminModel2 model = tasksArrayList.get(position);
 
-            holder.name.setText("Name: " + model.name);
+            holder.name.setText(Html.fromHtml(Constants.BOLD_START + "Customer Name: " +
+                    Constants.BOLD_END + model.name));
 
-            holder.id.setText("ID: " + model.id);
+            holder.id.setText(Html.fromHtml(Constants.BOLD_START + "Job Id: " + Constants.BOLD_END + model.id));
 
-            holder.staff_required.setText("Staff Required: " + model.staff_required);
-            holder.payment.setText("Payment: " + model.payment + "₹");
-            holder.occasion.setText("Occasion Type: " + model.occasion_type);
-            holder.party_date.setText("Party Date: " + model.date);
-            holder.number_of_people.setText("Number of people: " + model.number_of_people);
-            holder.time.setText("Time: " + model.time);
-            holder.number_of_dishes.setText("No of dishes: " + model.no_of_dishes);
-            holder.cuisines.setText("Cuisines: " + model.cuisines_list.toString());
-            holder.party_address.setText("Party Address: " + model.party_address);
+            holder.staff_required.setText(Html.fromHtml(Constants.BOLD_START + "Staff Required: " + Constants.BOLD_END + model.staff_required));
+            holder.payment.setText(Html.fromHtml(Constants.BOLD_START + "Payment: " + Constants.BOLD_END + "₹" + model.payment));
+            holder.occasion.setText(Html.fromHtml(Constants.BOLD_START + "Occasion Type: " + Constants.BOLD_END + model.occasion_type));
+            holder.party_date.setText(Html.fromHtml(Constants.BOLD_START + "Party Date: " + Constants.BOLD_END + model.date));
+            holder.number_of_people.setText(Html.fromHtml(Constants.BOLD_START + "Number of people: " + Constants.BOLD_END + model.number_of_people));
+            holder.time.setText(Html.fromHtml(Constants.BOLD_START + "Time: " + Constants.BOLD_END + model.time));
+            holder.number_of_dishes.setText(Html.fromHtml(Constants.BOLD_START + "No of dishes: " + Constants.BOLD_END + model.no_of_dishes));
+            holder.cuisines.setText(Html.fromHtml(Constants.BOLD_START + "Cuisines: " + Constants.BOLD_END + model.cuisines_list.toString()));
+            holder.party_address.setText(Html.fromHtml(Constants.BOLD_START + "Party Address: " + Constants.BOLD_END + model.party_address));
 
             holder.markAsCompletedBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -172,7 +176,7 @@ public class AcceptedJobsFragment extends Fragment {
                             .child(Constants.COMPLETED_JOBS)
                             .child(model.push_key)
                             .setValue(model);
-
+                    uploadNotification(model);
                     Toast.makeText(requireContext(), "Done", Toast.LENGTH_SHORT).show();
                 }
             });
@@ -215,4 +219,14 @@ public class AcceptedJobsFragment extends Fragment {
 
     }
 
+    private void uploadNotification(JobsAdminModel2 model) {
+        new FcmNotificationsSender(
+                "/topics/" + Constants.ADMIN_NOTIFICATIONS,
+                "Job Completed",
+                "Chef completed Job Id: " + model.id +
+                        " in city " + model.city,
+                requireContext().getApplicationContext(),
+                requireActivity())
+                .SendNotifications();
+    }
 }

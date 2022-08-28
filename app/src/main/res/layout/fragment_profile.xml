@@ -134,7 +134,7 @@
                         android:orientation="horizontal"
                         android:padding="15dp">
 
-                        <EditText
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:id="@+id/email_et_chef"
@@ -155,7 +155,7 @@
                         android:orientation="horizontal"
                         android:padding="15dp">
 
-                        <EditText
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
@@ -176,7 +176,7 @@
                         android:orientation="horizontal"
                         android:padding="15dp">
 
-                        <EditText
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"

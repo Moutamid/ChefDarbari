@@ -23,9 +23,11 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.moutamid.chefdarbari.affiliate.AffiliateNavigationActivity;
+import com.moutamid.chefdarbari.chef.ui.JobDetailsActivity;
 import com.moutamid.chefdarbari.databinding.ActivityDetailsBinding;
 import com.moutamid.chefdarbari.models.AffiliateUserModel;
 import com.moutamid.chefdarbari.models.ChefUserModel;
+import com.moutamid.chefdarbari.notifications.FcmNotificationsSender;
 import com.moutamid.chefdarbari.utils.Constants;
 import com.moutamid.chefdarbari.R;
 import com.moutamid.chefdarbari.chef.ChefNavigationActivity;
@@ -190,7 +192,9 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void uploadChefData() {
-        Constants.databaseReference().child(Constants.USERS)
+        Constants.databaseReference()
+                .child(Constants.USERS)
+                .child(Constants.CHEF)
                 .child(Constants.auth().getCurrentUser().getUid())
                 .setValue(chefUserModel)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -198,6 +202,7 @@ public class DetailsActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         progressDialog.dismiss();
                         if (task.isSuccessful()) {
+                            uploadNotification();
                             Stash.put(Constants.CURRENT_CHEF_MODEL, chefUserModel);
                             Toast.makeText(DetailsActivity.this, "Successful", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(DetailsActivity.this, ChefNavigationActivity.class);
@@ -212,7 +217,9 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void uploadAffiliateData() {
-        Constants.databaseReference().child(Constants.USERS)
+        Constants.databaseReference()
+                .child(Constants.USERS)
+                .child(Constants.AFFILIATE)
                 .child(Constants.auth().getCurrentUser().getUid())
                 .setValue(affiliateUserModel)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -220,6 +227,7 @@ public class DetailsActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         progressDialog.dismiss();
                         if (task.isSuccessful()) {
+                            uploadNotification();
                             Stash.put(Constants.CURRENT_AFFILIATE_MODEL, affiliateUserModel);
                             Toast.makeText(DetailsActivity.this, "Successful", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(DetailsActivity.this, AffiliateNavigationActivity.class);
@@ -351,4 +359,24 @@ public class DetailsActivity extends AppCompatActivity {
             }
         }
     }
+
+    private void uploadNotification() {
+        String body;
+        String title;
+        if (user_type.equals(Constants.AFFILIATE)) {
+            title = "New Affiliate SignUp";
+            body = affiliateUserModel.name + " has signed up from " + affiliateUserModel.shopCity;
+        } else {
+            title = "New Chef SignUp";
+            body = chefUserModel.name +" has signed up from " + chefUserModel.city;
+        }
+        new FcmNotificationsSender(
+                "/topics/" + Constants.ADMIN_NOTIFICATIONS,
+                title,
+                body,
+                getApplicationContext(),
+                DetailsActivity.this)
+                .SendNotifications();
+    }
+
 }

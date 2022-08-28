@@ -17,6 +17,7 @@ import androidx.core.app.NotificationCompat;
 import com.google.firebase.messaging.RemoteMessage;
 import com.moutamid.chefdarbari.R;
 import com.moutamid.chefdarbari.activity.MainActivity;
+import com.moutamid.chefdarbari.activity.SplashActivity;
 
 public class FirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {
     public static final String MY_PREFS_NAME = "MyPrefsFile";
@@ -49,7 +50,7 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
 //        }
 
         builder.setSmallIcon(R.drawable.logoo);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, new Intent(this, MainActivity.class),
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, new Intent(this, SplashActivity.class),
                 PendingIntent.FLAG_UPDATE_CURRENT);//134217728
         builder.setContentTitle(remoteMessage.getNotification().getTitle());
         builder.setContentText(remoteMessage.getNotification().getBody());

@@ -2,6 +2,7 @@ package com.moutamid.chefdarbari.affiliate.ui;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -38,7 +39,8 @@ public class ProfileAffiliateFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         b = FragmentProfileAffiliateBinding.inflate(inflater, container, false);
         View root = b.getRoot();
-        if (!isAdded()) return b.getRoot();
+        if (!isAdded())
+            return b.getRoot();
 
         b.accountTypeTv.setOnClickListener(new View.OnClickListener() {
             @Override

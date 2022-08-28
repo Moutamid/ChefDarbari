@@ -153,6 +153,35 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:890062472575:android:14b5e3ff1dd383ac04464a",
+        "android_client_info": {
+          "package_name": "com.moutamid.cheffdarbariadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890062472575-05ue90j9694eg6eorj1lhjoknkj3oqja.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcgg_QpZ2O60W4UhMd28XbBclcQb8oCR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890062472575-05ue90j9694eg6eorj1lhjoknkj3oqja.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:890062472575:android:2ec5b211b558f30104464a",
         "android_client_info": {
           "package_name": "com.moutamid.emiadminapp"
