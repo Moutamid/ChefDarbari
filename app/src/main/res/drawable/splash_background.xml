@@ -9,8 +9,8 @@
         android:top="0dp" />
 
     <item
-        android:width="100dp"
-        android:height="50dp"
+        android:width="150dp"
+        android:height="150dp"
         android:drawable="@drawable/logoo"
         android:gravity="center" />
 
