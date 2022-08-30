@@ -7,36 +7,36 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.moutamid.chefdarbari.chef.ui.HomeFragment"
+        android:name="com.moutamid.chefdarbarii.chef.ui.HomeFragment"
         android:label="Home Party Jobs"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_accepted_jobs"
-        android:name="com.moutamid.chefdarbari.chef.ui.AcceptedJobsFragment"
+        android:name="com.moutamid.chefdarbarii.chef.ui.AcceptedJobsFragment"
         android:label="Accepted Jobs"
         tools:layout="@layout/fragment_accepted_jobs" />
 
     <fragment
         android:id="@+id/navigation_completed_jobs"
-        android:name="com.moutamid.chefdarbari.chef.ui.CompletedJobsFragment"
+        android:name="com.moutamid.chefdarbarii.chef.ui.CompletedJobsFragment"
         android:label="Completed Jobs"
         tools:layout="@layout/fragment_completed_jobs" />
 
     <fragment
         android:id="@+id/navigation_show_id"
-        android:name="com.moutamid.chefdarbari.chef.ui.ShowIDFragment"
+        android:name="com.moutamid.chefdarbarii.chef.ui.ShowIDFragment"
         android:label="Show ID"
         tools:layout="@layout/fragment_show_id" />
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.moutamid.chefdarbari.chef.ui.ProfileFragment"
+        android:name="com.moutamid.chefdarbarii.chef.ui.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/navigation_terms"
-        android:name="com.moutamid.chefdarbari.chef.ui.JobTermsFragment"
+        android:name="com.moutamid.chefdarbarii.chef.ui.JobTermsFragment"
         android:label="Job Terms"
         tools:layout="@layout/fragment_job_terms" />
 </navigation>

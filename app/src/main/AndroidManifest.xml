@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.moutamid.chefdarbari">
+    package="com.moutamid.chefdarbarii">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <application
-        android:name=".utils.AppCOntext"
+        android:name="com.moutamid.chefdarbarii.utils.AppCOntext"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -19,26 +19,26 @@
         android:theme="@style/Theme.ChefDarbari"
         tools:targetApi="31">
         <activity
-            android:name=".affiliate.AffiliateNavigationActivity"
+            android:name="com.moutamid.chefdarbarii.affiliate.AffiliateNavigationActivity"
             android:exported="false"
             android:label="@string/title_activity_affiliate_navigation"
             android:theme="@style/Theme.ChefDarbari.NoActionBar" />
         <activity
-            android:name=".chef.ChefNavigationActivity"
+            android:name="com.moutamid.chefdarbarii.chef.ChefNavigationActivity"
             android:exported="false"
             android:label="@string/title_activity_chef_navigation"
             android:theme="@style/Theme.ChefDarbari.NoActionBar" />
         <activity
-            android:name=".chef.ui.JobDetailsActivity"
+            android:name="com.moutamid.chefdarbarii.chef.ui.JobDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.details.DetailsActivity"
+            android:name="com.moutamid.chefdarbarii.activity.details.DetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.VerifyOtpActivity"
+            android:name="com.moutamid.chefdarbarii.activity.VerifyOtpActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.SplashActivity"
+            android:name="com.moutamid.chefdarbarii.activity.SplashActivity"
             android:exported="true"
             android:noHistory="true"
             android:theme="@style/SplashTheme">
@@ -49,14 +49,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.LoginActivity"
+            android:name="com.moutamid.chefdarbarii.activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.moutamid.chefdarbarii.activity.MainActivity"
             android:exported="true" />
         <service
             android:exported="true"
-            android:name=".notifications.FirebaseMessagingService"
+            android:name="com.moutamid.chefdarbarii.notifications.FirebaseMessagingService"
             android:permission="TODO">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

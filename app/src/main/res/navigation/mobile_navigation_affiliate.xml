@@ -7,24 +7,24 @@
 
     <fragment
         android:id="@+id/navigation_add_jobs"
-        android:name="com.moutamid.chefdarbari.affiliate.ui.AddNewBookingsFragment"
+        android:name="com.moutamid.chefdarbarii.affiliate.ui.AddNewBookingsFragment"
         android:label="My Bookings"
         tools:layout="@layout/fragment_add_new_bookings" />
     <fragment
         android:id="@+id/navigation_my_bookings"
-        android:name="com.moutamid.chefdarbari.affiliate.ui.MyBookingsFragment"
+        android:name="com.moutamid.chefdarbarii.affiliate.ui.MyBookingsFragment"
         android:label="My Bookings"
         tools:layout="@layout/fragment_my_bookings" />
 
     <fragment
         android:id="@+id/navigation_customer_items"
-        android:name="com.moutamid.chefdarbari.affiliate.ui.CustomerItemsFragment"
+        android:name="com.moutamid.chefdarbarii.affiliate.ui.CustomerItemsFragment"
         android:label="Customer Items"
         tools:layout="@layout/fragment_customer_items" />
 
     <fragment
         android:id="@+id/navigation_profile_affiliate"
-        android:name="com.moutamid.chefdarbari.affiliate.ui.ProfileAffiliateFragment"
+        android:name="com.moutamid.chefdarbarii.affiliate.ui.ProfileAffiliateFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile_affiliate" />
 </navigation>
