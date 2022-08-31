@@ -9,6 +9,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.fxn.stash.Stash;
+import com.moutamid.chefdarbarii.utils.Constants;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +20,7 @@ import org.json.JSONObject;
 
 public class FcmNotificationsSender {
     String body;
-    private final String fcmServerKey = "AAAA-wM2HuQ:APA91bFeoBFYgt_fB-lEAlG78eCoKK2lDp8SLh2hQZzHG016SQDS7DK5qD6ityiBOjmLgSvzr4gHAA0pnnprxJTFRYfc1iKyyBzsV_W6-7fo_soZ2hr_vPC7zOzg4arym5Mf-dhxRFd6";
+    private String fcmServerKey = "";
     Activity mActivity;
     Context mContext;
     private final String postUrl = "https://fcm.googleapis.com/fcm/send";
@@ -27,6 +29,7 @@ public class FcmNotificationsSender {
     String userFcmToken;
 
     public FcmNotificationsSender(String userFcmToken2, String title2, String body2, Context mContext2, Activity mActivity2) {
+        fcmServerKey = Stash.getString(Constants.KEY);
         this.userFcmToken = userFcmToken2;
         this.title = title2;
         this.body = body2;

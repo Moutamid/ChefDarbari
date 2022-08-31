@@ -1,12 +1,21 @@
 package com.moutamid.chefdarbarii.affiliate;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.Toast;
 
+import com.fxn.stash.Stash;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.moutamid.chefdarbarii.R;
+import com.moutamid.chefdarbarii.chef.ChefNavigationActivity;
 import com.moutamid.chefdarbarii.databinding.ActivityAffiliateNavigationBinding;
+import com.moutamid.chefdarbarii.utils.Constants;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -22,10 +31,8 @@ public class AffiliateNavigationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityAffiliateNavigationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         setSupportActionBar(binding.appBarAffiliateNavigation.toolbar);
         /*binding.appBarAffiliateNavigation.fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +41,9 @@ public class AffiliateNavigationActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });*/
+
+        getServerKey();
+
         DrawerLayout drawer = binding.drawerLayoutAffiliate;
         binding.appBarAffiliateNavigation.affiliateMenuBtn.setOnClickListener(v -> {
             if (drawer.isOpen())
@@ -55,6 +65,33 @@ public class AffiliateNavigationActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_affiliate_navigation);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+    }
+
+    private void getServerKey() {
+        if (Stash.getString(Constants.KEY, "n").equals("n")) {
+            ProgressDialog progressDialog;
+            progressDialog = new ProgressDialog(AffiliateNavigationActivity.this);
+            progressDialog.setCancelable(false);
+            progressDialog.setMessage("Loading...");
+            progressDialog.show();
+            Constants.databaseReference()
+                    .child("server_key")
+                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            progressDialog.dismiss();
+                            if (snapshot.exists()) {
+                                Stash.put(Constants.KEY, snapshot.getValue(String.class));
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            progressDialog.dismiss();
+                            Toast.makeText(AffiliateNavigationActivity.this, error.toException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 
     @Override
