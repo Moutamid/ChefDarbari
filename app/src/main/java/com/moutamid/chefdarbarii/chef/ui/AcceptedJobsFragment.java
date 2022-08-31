@@ -35,8 +35,7 @@ public class AcceptedJobsFragment extends Fragment {
 
     private FragmentAcceptedJobsBinding b;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         b = FragmentAcceptedJobsBinding.inflate(inflater, container, false);
         View root = b.getRoot();
         if (!isAdded()) return b.getRoot();

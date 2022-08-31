@@ -126,7 +126,6 @@ public class AddNewBookingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 int mYear, mMonth, mDay, hour, mMinute;
-                String amPm;
                 final Calendar c = Calendar.getInstance();
                 hour = c.get(Calendar.HOUR);
                 mMinute = c.get(Calendar.MINUTE);
@@ -145,8 +144,18 @@ public class AddNewBookingsFragment extends Fragment {
                                 if (current_minute.length() == 1)
                                     current_minute = "0" + current_minute;
 
+                                String am_pm = "";
 
-                                affiliateAddBookingModel.time = current_hour + ":" + current_minute;
+                                Calendar datetime = Calendar.getInstance();
+                                datetime.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                                datetime.set(Calendar.MINUTE, minute);
+
+                                if (datetime.get(Calendar.AM_PM) == Calendar.AM)
+                                    am_pm = " AM";
+                                else if (datetime.get(Calendar.AM_PM) == Calendar.PM)
+                                    am_pm = " PM";
+
+                                affiliateAddBookingModel.time = current_hour + ":" + current_minute + am_pm;
                                 b.timeEt.setText(affiliateAddBookingModel.time);
                             }
 
