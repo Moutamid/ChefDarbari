@@ -27,6 +27,8 @@ import com.moutamid.chefdarbarii.models.JobsAdminModel;
 import com.moutamid.chefdarbarii.utils.Constants;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 public class HomeFragment extends Fragment {
@@ -36,7 +38,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         b = FragmentHomeBinding.inflate(inflater, container, false);
         View root = b.getRoot();
-        if (!isAdded())  return b.getRoot();
+        if (!isAdded()) return b.getRoot();
         Constants.databaseReference()
                 .child(Constants.ADMIN_BOOKINGS)
                 .addValueEventListener(new ValueEventListener() {
@@ -49,6 +51,14 @@ public class HomeFragment extends Fragment {
                                 adminModel.push_key = dataSnapshot.getKey();
                                 tasksArrayList.add(adminModel);
                             }
+
+                            Collections.sort(tasksArrayList, new Comparator<JobsAdminModel>() {
+                                @Override
+                                public int compare(JobsAdminModel o1, JobsAdminModel o2) {
+                                    return Boolean.compare(o1.job_open, o2.job_open);
+                                }
+                            });
+
                             initRecyclerView();
                         } else {
                             Toast.makeText(requireContext(), "no data", Toast.LENGTH_SHORT).show();
@@ -114,15 +124,15 @@ public class HomeFragment extends Fragment {
                 holder.jobOpen.setText("Open Job");
                 holder.jobOpen.setBackgroundColor(getResources().getColor(R.color.lightgreen));
             } else {
-                holder.jobOpen.setText("Closed");
-                holder.jobOpen.setBackgroundColor(getResources().getColor(R.color.red));
+                holder.jobOpen.setText("Completed");
+                holder.jobOpen.setBackgroundColor(getResources().getColor(R.color.orange));
             }
             holder.name.setText(Html.fromHtml(Constants.BOLD_START + "Customer Name: " + Constants.BOLD_END + model.name));
 
             holder.id.setText(Html.fromHtml(Constants.BOLD_START + "Job Id: " + Constants.BOLD_END + model.id));
 
             holder.staff_required.setText(Html.fromHtml(Constants.BOLD_START + "Staff Required: " + Constants.BOLD_END + model.staff_required));
-            holder.payment.setText(Html.fromHtml(Constants.BOLD_START + "Payment: " + Constants.BOLD_END + "₹"+model.payment));
+            holder.payment.setText(Html.fromHtml(Constants.BOLD_START + "Payment: " + Constants.BOLD_END + "₹" + model.payment));
             holder.occasion.setText(Html.fromHtml(Constants.BOLD_START + "Occasion Type: " + Constants.BOLD_END + model.occasion_type));
             holder.party_date.setText(Html.fromHtml(Constants.BOLD_START + "Party Date: " + Constants.BOLD_END + model.date));
             holder.number_of_people.setText(Html.fromHtml(Constants.BOLD_START + "Number of people: " + Constants.BOLD_END + model.number_of_people));

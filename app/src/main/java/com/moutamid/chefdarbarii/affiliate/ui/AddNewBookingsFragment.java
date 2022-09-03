@@ -26,7 +26,10 @@ import com.moutamid.chefdarbarii.models.AffiliateAddBookingModel;
 import com.moutamid.chefdarbarii.utils.Constants;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.TimeZone;
 
 public class AddNewBookingsFragment extends Fragment {
@@ -155,7 +158,18 @@ public class AddNewBookingsFragment extends Fragment {
                                 else if (datetime.get(Calendar.AM_PM) == Calendar.PM)
                                     am_pm = " PM";
 
-                                affiliateAddBookingModel.time = current_hour + ":" + current_minute + am_pm;
+                                String time = current_hour + ":" + current_minute;
+
+                                try {
+                                    SimpleDateFormat sdf = new SimpleDateFormat("H:mm");
+                                    Date dateObj;
+                                    dateObj = sdf.parse(time);
+                                    time = new SimpleDateFormat("K:mm").format(dateObj);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+
+                                affiliateAddBookingModel.time = time + am_pm;
                                 b.timeEt.setText(affiliateAddBookingModel.time);
                             }
 

@@ -45,8 +45,8 @@ public class JobDetailsActivity extends AppCompatActivity {
             b.jobStatusJobDetails.setText("Open Job");
             b.jobStatusJobDetails.setBackgroundColor(getResources().getColor(R.color.lightgreen));
         } else {
-            b.jobStatusJobDetails.setText("Closed");
-            b.jobStatusJobDetails.setBackgroundColor(getResources().getColor(R.color.red));
+            b.jobStatusJobDetails.setText("Completed");
+            b.jobStatusJobDetails.setBackgroundColor(getResources().getColor(R.color.orange));
             b.acceptJobBtn.setVisibility(View.GONE);
         }
 
@@ -165,8 +165,8 @@ public class JobDetailsActivity extends AppCompatActivity {
                                     .child(model.push_key)
                                     .setValue(jobsAdminModel2);
 
-                            b.jobStatusJobDetails.setText("Closed");
-                            b.jobStatusJobDetails.setBackgroundColor(getResources().getColor(R.color.red));
+                            b.jobStatusJobDetails.setText("Completed");
+                            b.jobStatusJobDetails.setBackgroundColor(getResources().getColor(R.color.orange));
                             b.acceptJobBtn.setVisibility(View.GONE);
 
                             progressDialog.dismiss();
