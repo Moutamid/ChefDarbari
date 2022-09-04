@@ -2,8 +2,8 @@ package com.moutamid.chefdarbarii.affiliate.ui;
 
 import static android.view.LayoutInflater.from;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,7 +82,7 @@ public class MyBookingsFragment extends Fragment {
         //int mNoOfColumns = calculateNoOfColumns(getApplicationContext(), 50);
         //  recyclerView.setLayoutManager(new GridLayoutManager(this, mNoOfColumns));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireActivity());
-        //linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setReverseLayout(true);
         conversationRecyclerView.setLayoutManager(linearLayoutManager);
         conversationRecyclerView.setHasFixedSize(true);
         conversationRecyclerView.setNestedScrollingEnabled(false);
@@ -112,18 +112,22 @@ public class MyBookingsFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull final ViewHolderRightMessage holder, int position) {
             AffiliateAddBookingModel model = tasksArrayList.get(position);
-// name, staffRequired, payment, occasion, party_date,
-//                    number_of_people, time, no_of_dishes, cuisines, party_adress;
-            holder.name.setText(model.name);
-//            holder.staffRequired.setText(model.s);
-//            holder.payment.setText(model.pa);
-            holder.occasion.setText(model.occasion_type);
-            holder.party_date.setText(model.date_of_party);
-            holder.number_of_people.setText(model.number_of_people);
-            holder.time.setText(model.date_of_party + " " + model.time);
-            holder.no_of_dishes.setText(model.number_of_dishes);
-            holder.cuisines.setText(model.cuisinesList.toString());
-            holder.party_adress.setText(model.party_venue_address);
+            if (model.booking_confirmed) {
+                holder.bookingConfirmed.setText("Confirmed");
+                holder.bookingConfirmed.setBackgroundColor(getResources().getColor(R.color.lightgreen));
+            } else {
+                holder.bookingConfirmed.setText("Not Confirmed");
+                holder.bookingConfirmed.setBackgroundColor(getResources().getColor(R.color.orange));
+            }
+            holder.id.setText(Html.fromHtml(Constants.BOLD_START + "Booking ID: " + Constants.BOLD_END + model.id));
+            holder.name.setText(Html.fromHtml(Constants.BOLD_START + "Customer Name: " + Constants.BOLD_END + model.name));
+            holder.occasion.setText(Html.fromHtml(Constants.BOLD_START + "Occasion Type: " + Constants.BOLD_END + model.occasion_type));
+            holder.party_date.setText(Html.fromHtml(Constants.BOLD_START + "Party Date: " + Constants.BOLD_END + model.date_of_party));
+            holder.number_of_people.setText(Html.fromHtml(Constants.BOLD_START + "Number of people: " + Constants.BOLD_END + model.number_of_people));
+            holder.time.setText(Html.fromHtml(Constants.BOLD_START + "Time: " + Constants.BOLD_END + model.time));
+            holder.no_of_dishes.setText(Html.fromHtml(Constants.BOLD_START + "No of dishes: " + Constants.BOLD_END + model.number_of_dishes));
+            holder.cuisines.setText(Html.fromHtml(Constants.BOLD_START + "Cuisines: " + Constants.BOLD_END + model.cuisinesList.toString()));
+            holder.party_adress.setText(Html.fromHtml(Constants.BOLD_START + "Party Address: " + Constants.BOLD_END + model.party_venue_address));
 
         }
 
@@ -136,12 +140,14 @@ public class MyBookingsFragment extends Fragment {
 
         public class ViewHolderRightMessage extends RecyclerView.ViewHolder {
 
-            TextView name, payment, occasion, party_date,
+            TextView name, bookingConfirmed, id, payment, occasion, party_date,
                     number_of_people, time, no_of_dishes, cuisines, party_adress;
 
             //staffRequired
             public ViewHolderRightMessage(@NonNull View v) {
                 super(v);
+                bookingConfirmed = v.findViewById(R.id.booking_confirmed_mybookings_item);
+                id = v.findViewById(R.id.id_my_bookings_item);
                 name = v.findViewById(R.id.name_my_bookings_item);
 //                staffRequired = v.findViewById(R.id.staff_required_my_bookings_item);
                 payment = v.findViewById(R.id.payment_my_bookings_item);

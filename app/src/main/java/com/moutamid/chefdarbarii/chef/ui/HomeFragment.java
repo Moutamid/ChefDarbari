@@ -21,15 +21,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.moutamid.chefdarbarii.R;
 import com.moutamid.chefdarbarii.databinding.FragmentHomeBinding;
-import com.moutamid.chefdarbarii.R;
-
 import com.moutamid.chefdarbarii.models.JobsAdminModel;
 import com.moutamid.chefdarbarii.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
 
 public class HomeFragment extends Fragment {
 

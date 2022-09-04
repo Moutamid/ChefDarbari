@@ -2,6 +2,7 @@ package com.moutamid.chefdarbarii.affiliate.ui;
 
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,11 +21,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.moutamid.chefdarbarii.R;
+import com.moutamid.chefdarbarii.affiliate.AffiliateNavigationActivity;
 import com.moutamid.chefdarbarii.databinding.FragmentAddNewBookingsBinding;
 import com.moutamid.chefdarbarii.models.AffiliateAddBookingModel;
+import com.moutamid.chefdarbarii.notifications.FcmNotificationsSender;
 import com.moutamid.chefdarbarii.utils.Constants;
-
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -37,6 +42,7 @@ public class AddNewBookingsFragment extends Fragment {
     private FragmentAddNewBookingsBinding b;
     AffiliateAddBookingModel affiliateAddBookingModel = new AffiliateAddBookingModel();
     private ProgressDialog progressDialog;
+    long last_id;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -51,6 +57,7 @@ public class AddNewBookingsFragment extends Fragment {
 
         affiliateAddBookingModel.time = Constants.NULL;
         affiliateAddBookingModel.date_of_party = Constants.NULL;
+        affiliateAddBookingModel.booking_confirmed = false;
 
         b.occasionTv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,23 +87,62 @@ public class AddNewBookingsFragment extends Fragment {
 
                 progressDialog.show();
 
-                Constants.databaseReference().child(Constants.NEW_PARTY_BOOKINGS)
-                        .push()
-                        .setValue(affiliateAddBookingModel)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                Constants.databaseReference()
+                        .child(Constants.AFFILIATE_LAST_BOOKING_ID)
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                Constants.databaseReference()
-                                        .child(Constants.auth().getUid())
-                                        .child(Constants.NEW_PARTY_BOOKINGS)
-                                        .push()
-                                        .setValue(affiliateAddBookingModel);
-                                progressDialog.dismiss();
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(requireContext(), "Done", Toast.LENGTH_SHORT).show();
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.exists()) {
+                                    last_id = snapshot.getValue(Long.class);
+                                    last_id++;
                                 } else {
-                                    Toast.makeText(requireContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    last_id = 1986;
                                 }
+                                affiliateAddBookingModel.id = last_id + "";
+                                Constants.databaseReference().child(Constants.NEW_PARTY_BOOKINGS)
+                                        .push()
+                                        .setValue(affiliateAddBookingModel)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()) {
+
+                                                    Constants.databaseReference()
+                                                            .child(Constants.AFFILIATE_LAST_BOOKING_ID)
+                                                            .setValue(last_id)
+                                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                @Override
+                                                                public void onComplete(@NonNull Task<Void> task) {
+                                                                    if (task.isSuccessful()) {
+                                                                        uploadNotification();
+                                                                        Constants.databaseReference()
+                                                                                .child(Constants.auth().getUid())
+                                                                                .child(Constants.NEW_PARTY_BOOKINGS)
+                                                                                .push()
+                                                                                .setValue(affiliateAddBookingModel);
+                                                                        progressDialog.dismiss();
+                                                                        Toast.makeText(requireContext(), "Done", Toast.LENGTH_SHORT).show();
+                                                                        Intent intent = new Intent(requireContext(), AffiliateNavigationActivity.class);
+                                                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                                        requireActivity().finish();
+                                                                        startActivity(intent);
+
+                                                                    } else {
+                                                                        progressDialog.dismiss();
+                                                                        Toast.makeText(requireContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                                                    }
+                                                                }
+                                                            });
+                                                } else {
+                                                    Toast.makeText(requireContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
                             }
                         });
 
@@ -255,4 +301,13 @@ public class AddNewBookingsFragment extends Fragment {
         Toast.makeText(requireContext(), mcg, Toast.LENGTH_SHORT).show();
     }
 
+    private void uploadNotification() {
+        new FcmNotificationsSender(
+                "/topics/" + Constants.ADMIN_NOTIFICATIONS,
+                "New Affiliate Booking",
+                "Affiliate has added a new booking in " + affiliateAddBookingModel.party_venue_address,
+                requireActivity().getApplicationContext(),
+                requireActivity())
+                .SendNotifications();
+    }
 }
