@@ -87,7 +87,6 @@ public class MyBookingsFragment extends Fragment {
         conversationRecyclerView.setHasFixedSize(true);
         conversationRecyclerView.setNestedScrollingEnabled(false);
 
-
         conversationRecyclerView.setAdapter(adapter);
 
 //    if (adapter.getItemCount() != 0) {
