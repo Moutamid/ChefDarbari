@@ -22,9 +22,9 @@
         android:label="Customer Items"
         tools:layout="@layout/fragment_customer_items" />
 
-    <fragment
+    <!--<fragment
         android:id="@+id/navigation_profile_affiliate"
         android:name="com.moutamid.chefdarbarii.affiliate.ui.ProfileAffiliateFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile_affiliate" />
+        tools:layout="@layout/fragment_profile_affiliate" />-->
 </navigation>

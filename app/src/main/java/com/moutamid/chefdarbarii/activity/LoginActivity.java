@@ -6,15 +6,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.fxn.stash.Stash;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.moutamid.chefdarbarii.activity.details.DetailsActivity;
 import com.moutamid.chefdarbarii.databinding.ActivityLoginBinding;
+import com.moutamid.chefdarbarii.models.AffiliateUserModel;
+import com.moutamid.chefdarbarii.models.ChefUserModel;
+import com.moutamid.chefdarbarii.utils.AppCOntext;
 import com.moutamid.chefdarbarii.utils.Constants;
 import com.moutamid.chefdarbarii.R;
 import com.moutamid.chefdarbarii.affiliate.AffiliateNavigationActivity;
@@ -23,7 +27,7 @@ import com.moutamid.chefdarbarii.chef.ChefNavigationActivity;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
-
+    private static final String TAG = "LoginActivity";
     private ActivityLoginBinding b;
 
     String CURRENT_USER_TYPE = Constants.CHEF;
@@ -61,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
         findViewById(R.id.loginBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "onClick: ");
                 String email = b.emailEt.getText().toString();
                 String pass = b.password.getText().toString();
 
@@ -70,24 +75,69 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 progressDialog.show();
                 Constants.auth().signInWithEmailAndPassword(email, pass)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressDialog.dismiss();
-                                if (task.isSuccessful()){
-                                    Toast.makeText(LoginActivity.this, "Success", Toast.LENGTH_SHORT).show();
-                                    if (CURRENT_USER_TYPE.equals(Constants.AFFILIATE)) {
-                                        Stash.put(Constants.USER_TYPE, Constants.AFFILIATE);
-                                        startActivity(new Intent(LoginActivity.this, AffiliateNavigationActivity.class)
-                                                .putExtra(Constants.PARAMS, CURRENT_USER_TYPE));
-                                    } else {
-                                        Stash.put(Constants.USER_TYPE, Constants.CHEF);
-                                        startActivity(new Intent(LoginActivity.this, ChefNavigationActivity.class)
-                                                .putExtra(Constants.PARAMS, CURRENT_USER_TYPE));
-                                    }
-                                }else {
-                                    Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        .addOnCompleteListener(task -> {
+                            Log.d(TAG, "addOnCompleteListener: ");
+                            if (task.isSuccessful()) {
+                                Log.d(TAG, "onClick: if (task.isSuccessful()) {");
+                                String path;
+                                if (CURRENT_USER_TYPE.equals(Constants.AFFILIATE)) {
+                                    path = Constants.AFFILIATE;
+                                } else {
+                                    path = Constants.CHEF;
                                 }
+                                Constants.databaseReference().child(Constants.USERS)
+                                        .child(path)
+                                        .child(Constants.auth().getCurrentUser().getUid())
+                                        .addValueEventListener(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                Log.d(TAG, "onDataChange: addValueEventListener");
+                                                if (snapshot.exists()) {
+                                                    Log.d(TAG, "onDataChange: if (snapshot.exists()) {");
+                                                    if (CURRENT_USER_TYPE.equals(Constants.AFFILIATE)) {
+                                                        Stash.put(Constants.CURRENT_AFFILIATE_MODEL,
+                                                                snapshot.getValue(AffiliateUserModel.class));
+                                                    } else {
+                                                        Stash.put(Constants.CURRENT_CHEF_MODEL,
+                                                                snapshot.getValue(ChefUserModel.class));
+                                                    }
+                                                    progressDialog.dismiss();
+                                                    Toast.makeText(LoginActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                                                    if (CURRENT_USER_TYPE.equals(Constants.AFFILIATE)) {
+                                                        Stash.put(Constants.USER_TYPE, Constants.AFFILIATE);
+                                                        startActivity(new Intent(LoginActivity.this, AffiliateNavigationActivity.class)
+                                                                .putExtra(Constants.PARAMS, CURRENT_USER_TYPE));
+                                                    } else {
+                                                        Stash.put(Constants.USER_TYPE, Constants.CHEF);
+                                                        startActivity(new Intent(LoginActivity.this, ChefNavigationActivity.class)
+                                                                .putExtra(Constants.PARAMS, CURRENT_USER_TYPE));
+                                                    }
+                                                    Log.d(TAG, "onDataChange: finish");
+                                                } else {
+                                                    Log.d(TAG, "onDataChange: } else {");
+                                                    Toast.makeText(LoginActivity.this, "No data exist", Toast.LENGTH_SHORT).show();
+                                                    progressDialog.dismiss();
+                                                    Constants.auth().signOut();
+                                                    Stash.clearAll();
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+                                                Log.d(TAG, "onCancelled: ");
+                                                Constants.auth().signOut();
+                                                progressDialog.dismiss();
+                                                Stash.clearAll();
+                                                Toast.makeText(LoginActivity.this, error.toException().getMessage(),
+                                                        Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                            } else {
+                                Log.d(TAG, "onClick: } else {");
+                                Constants.auth().signOut();
+                                Stash.clearAll();
+                                progressDialog.dismiss();
+                                Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
             }

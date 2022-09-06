@@ -657,6 +657,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
                             android:id="@+id/number_et_chef"
+                            android:inputType="number"
                             android:background="@color/white"
                             android:hint="Phone Number"
                             android:textSize="20sp" />
@@ -677,6 +678,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
+                            android:inputType="number"
                             android:background="@color/white"
                             android:id="@+id/whatsapp_et_chef"
                             android:hint="Whatsapp Number"

@@ -43,7 +43,6 @@ public class MyBookingsFragment extends Fragment {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.exists()) {
-
                             tasksArrayList.clear();
 
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
@@ -127,6 +126,7 @@ public class MyBookingsFragment extends Fragment {
             holder.no_of_dishes.setText(Html.fromHtml(Constants.BOLD_START + "No of dishes: " + Constants.BOLD_END + model.number_of_dishes));
             holder.cuisines.setText(Html.fromHtml(Constants.BOLD_START + "Cuisines: " + Constants.BOLD_END + model.cuisinesList.toString()));
             holder.party_adress.setText(Html.fromHtml(Constants.BOLD_START + "Party Address: " + Constants.BOLD_END + model.party_venue_address));
+            holder.number.setText(Html.fromHtml(Constants.BOLD_START + "Number: " + Constants.BOLD_END + model.number));
 
         }
 
@@ -140,12 +140,14 @@ public class MyBookingsFragment extends Fragment {
         public class ViewHolderRightMessage extends RecyclerView.ViewHolder {
 
             TextView name, bookingConfirmed, id, payment, occasion, party_date,
-                    number_of_people, time, no_of_dishes, cuisines, party_adress;
+                    number_of_people, time, no_of_dishes, cuisines, party_adress,
+            number;
 
             //staffRequired
             public ViewHolderRightMessage(@NonNull View v) {
                 super(v);
                 bookingConfirmed = v.findViewById(R.id.booking_confirmed_mybookings_item);
+                number = v.findViewById(R.id.number_my_bookings_item);
                 id = v.findViewById(R.id.id_my_bookings_item);
                 name = v.findViewById(R.id.name_my_bookings_item);
 //                staffRequired = v.findViewById(R.id.staff_required_my_bookings_item);

@@ -10,6 +10,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.moutamid.chefdarbarii.R;
 import com.moutamid.chefdarbarii.chef.ChefNavigationActivity;
 import com.moutamid.chefdarbarii.databinding.ActivityAffiliateNavigationBinding;
@@ -42,6 +43,8 @@ public class AffiliateNavigationActivity extends AppCompatActivity {
             }
         });*/
 
+        FirebaseMessaging.getInstance().subscribeToTopic(Constants.AFFILIATE_NOTIFICATIONS);
+
         getServerKey();
 
         DrawerLayout drawer = binding.drawerLayoutAffiliate;
@@ -58,8 +61,8 @@ public class AffiliateNavigationActivity extends AppCompatActivity {
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_add_jobs,
                 R.id.navigation_my_bookings,
-                R.id.navigation_customer_items,
-                R.id.navigation_profile_affiliate)
+                R.id.navigation_customer_items)
+//                R.id.navigation_profile_affiliate)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_affiliate_navigation);

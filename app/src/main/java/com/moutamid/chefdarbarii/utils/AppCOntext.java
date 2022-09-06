@@ -21,7 +21,15 @@ public class AppCOntext extends Application {
         if (Constants.auth().getCurrentUser() == null)
             return;
 
+        String path;
+        if (Stash.getString(Constants.USER_TYPE).equals(Constants.CHEF)) {
+            path = Constants.CHEF;
+        } else {
+            path = Constants.AFFILIATE;
+        }
+
         Constants.databaseReference().child(Constants.USERS)
+                .child(path)
                 .child(Constants.auth().getCurrentUser().getUid())
                 .addValueEventListener(new ValueEventListener() {
                     @Override
