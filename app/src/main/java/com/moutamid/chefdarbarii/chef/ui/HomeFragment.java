@@ -1,5 +1,6 @@
 package com.moutamid.chefdarbarii.chef.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
@@ -31,11 +32,17 @@ import java.util.Comparator;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding b;
-
+    private ProgressDialog progressDialog;
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         b = FragmentHomeBinding.inflate(inflater, container, false);
         View root = b.getRoot();
         if (!isAdded()) return b.getRoot();
+
+        progressDialog = new ProgressDialog(requireContext());
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
+
         Constants.databaseReference()
                 .child(Constants.ADMIN_BOOKINGS)
                 .addValueEventListener(new ValueEventListener() {
@@ -55,15 +62,17 @@ public class HomeFragment extends Fragment {
                                     return Boolean.compare(o1.job_open, o2.job_open);
                                 }
                             });
-
+                            progressDialog.dismiss();
                             initRecyclerView();
                         } else {
+                            progressDialog.dismiss();
                             Toast.makeText(requireContext(), "no data", Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
+                        progressDialog.dismiss();
                         Toast.makeText(requireContext(), error.toException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });

@@ -2,6 +2,7 @@ package com.moutamid.chefdarbarii.chef.ui;
 
 import static android.view.LayoutInflater.from;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -30,13 +31,16 @@ import java.util.ArrayList;
 public class CompletedJobsFragment extends Fragment {
 
     private FragmentCompletedJobsBinding b;
-
+    private ProgressDialog progressDialog;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         b = FragmentCompletedJobsBinding.inflate(inflater, container, false);
         View root = b.getRoot();
         if (!isAdded()) return b.getRoot();
-
+        progressDialog = new ProgressDialog(requireContext());
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
         Constants.databaseReference()
                 .child(Constants.auth().getUid())
                 .child(Constants.COMPLETED_JOBS)
@@ -50,12 +54,15 @@ public class CompletedJobsFragment extends Fragment {
                                 JobsAdminModel2 adminModel = dataSnapshot.getValue(JobsAdminModel2.class);
                                 tasksArrayList.add(adminModel);
                             }
+                            progressDialog.dismiss();
+
                             initRecyclerView();
-                        }
+                        }else progressDialog.dismiss();
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
+                        progressDialog.dismiss();
                         Toast.makeText(requireContext(), error.toException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
