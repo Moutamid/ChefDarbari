@@ -8,6 +8,9 @@ public class AffiliateAddBookingModel {
     public ArrayList<String> cuisinesList = new ArrayList<>();
     public boolean booking_confirmed;
 
+    public String affiliate_uid, affiliate_shop_name, affiliate_number, affiliate_city,
+            affiliate_shop_address, time_stamp;
+
     public AffiliateAddBookingModel() {
     }
 }

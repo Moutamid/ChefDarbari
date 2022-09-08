@@ -23,6 +23,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class ChefNavigationActivity extends AppCompatActivity {
@@ -41,6 +42,11 @@ public class ChefNavigationActivity extends AppCompatActivity {
         FirebaseMessaging.getInstance().subscribeToTopic(Constants.CHEF_NOTIFICATIONS);
 
         getServerKey();
+
+        /*int i;
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        i = list.get(10);*/
 
         DrawerLayout drawer = binding.drawerLayoutChef;
         binding.appBarChefNavigation.chefMenuBtn.setOnClickListener(v -> {

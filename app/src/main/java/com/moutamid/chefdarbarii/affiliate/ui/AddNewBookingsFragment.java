@@ -17,6 +17,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 
+import com.fxn.stash.Stash;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.datepicker.MaterialDatePicker;
@@ -28,6 +29,7 @@ import com.moutamid.chefdarbarii.R;
 import com.moutamid.chefdarbarii.affiliate.AffiliateNavigationActivity;
 import com.moutamid.chefdarbarii.databinding.FragmentAddNewBookingsBinding;
 import com.moutamid.chefdarbarii.models.AffiliateAddBookingModel;
+import com.moutamid.chefdarbarii.models.AffiliateUserModel;
 import com.moutamid.chefdarbarii.notifications.FcmNotificationsSender;
 import com.moutamid.chefdarbarii.utils.Constants;
 
@@ -42,14 +44,16 @@ public class AddNewBookingsFragment extends Fragment {
     private FragmentAddNewBookingsBinding b;
     AffiliateAddBookingModel affiliateAddBookingModel = new AffiliateAddBookingModel();
     private ProgressDialog progressDialog;
+    AffiliateUserModel affiliateUserModel;
     long last_id;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         b = FragmentAddNewBookingsBinding.inflate(inflater, container, false);
         View root = b.getRoot();
         if (!isAdded())
             return b.getRoot();
+
+        affiliateUserModel = (AffiliateUserModel) Stash.getObject(Constants.CURRENT_AFFILIATE_MODEL, AffiliateUserModel.class);
 
         progressDialog = new ProgressDialog(requireContext());
         progressDialog.setCancelable(false);
@@ -58,6 +62,12 @@ public class AddNewBookingsFragment extends Fragment {
         affiliateAddBookingModel.time = Constants.NULL;
         affiliateAddBookingModel.date_of_party = Constants.NULL;
         affiliateAddBookingModel.booking_confirmed = false;
+
+        affiliateAddBookingModel.affiliate_shop_name = affiliateUserModel.shopName;
+        affiliateAddBookingModel.affiliate_number = affiliateUserModel.number;
+        affiliateAddBookingModel.affiliate_city = affiliateUserModel.shopCity;
+        affiliateAddBookingModel.affiliate_shop_address = affiliateUserModel.shopAddress;
+        affiliateAddBookingModel.affiliate_uid = Constants.auth().getUid();
 
         b.occasionTv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +109,7 @@ public class AddNewBookingsFragment extends Fragment {
                                     last_id = 1986;
                                 }
                                 affiliateAddBookingModel.id = last_id + "";
+                                affiliateAddBookingModel.time_stamp = getDate();
                                 Constants.databaseReference().child(Constants.NEW_PARTY_BOOKINGS)
                                         .push()
                                         .setValue(affiliateAddBookingModel)
@@ -310,4 +321,19 @@ public class AddNewBookingsFragment extends Fragment {
                 requireActivity())
                 .SendNotifications();
     }
+
+    public String getDate() {
+        try {
+            Date date = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            return sdf.format(date);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "Error";
+
+    }
+
 }

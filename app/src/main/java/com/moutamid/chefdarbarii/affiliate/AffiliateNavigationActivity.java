@@ -24,6 +24,8 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class AffiliateNavigationActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -42,6 +44,11 @@ public class AffiliateNavigationActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });*/
+
+        /*int i;
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        i = list.get(10);*/
 
         FirebaseMessaging.getInstance().subscribeToTopic(Constants.AFFILIATE_NOTIFICATIONS);
 
