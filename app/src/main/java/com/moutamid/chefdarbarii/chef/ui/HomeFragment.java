@@ -48,6 +48,7 @@ public class HomeFragment extends Fragment {
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (!isAdded()) return;
                         if (snapshot.exists()) {
                             tasksArrayList.clear();
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {

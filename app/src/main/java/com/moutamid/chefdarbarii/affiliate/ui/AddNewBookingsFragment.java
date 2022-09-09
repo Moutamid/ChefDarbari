@@ -110,8 +110,11 @@ public class AddNewBookingsFragment extends Fragment {
                                 }
                                 affiliateAddBookingModel.id = last_id + "";
                                 affiliateAddBookingModel.time_stamp = getDate();
+                                affiliateAddBookingModel.push_key = Constants.databaseReference()
+                                        .child(Constants.NEW_PARTY_BOOKINGS).push().getKey();
+
                                 Constants.databaseReference().child(Constants.NEW_PARTY_BOOKINGS)
-                                        .push()
+                                        .child(affiliateAddBookingModel.push_key)
                                         .setValue(affiliateAddBookingModel)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
@@ -127,9 +130,11 @@ public class AddNewBookingsFragment extends Fragment {
                                                                     if (task.isSuccessful()) {
                                                                         uploadNotification();
                                                                         Constants.databaseReference()
+                                                                                .child(Constants.USERS)
+                                                                                .child(Constants.AFFILIATE)
                                                                                 .child(Constants.auth().getUid())
                                                                                 .child(Constants.NEW_PARTY_BOOKINGS)
-                                                                                .push()
+                                                                                .child(affiliateAddBookingModel.push_key)
                                                                                 .setValue(affiliateAddBookingModel);
                                                                         progressDialog.dismiss();
                                                                         Toast.makeText(requireContext(), "Done", Toast.LENGTH_SHORT).show();

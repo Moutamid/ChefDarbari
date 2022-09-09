@@ -40,12 +40,16 @@ public class MyBookingsFragment extends Fragment {
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
+
         Constants.databaseReference()
+                .child(Constants.USERS)
+                .child(Constants.AFFILIATE)
                 .child(Constants.auth().getUid())
                 .child(Constants.NEW_PARTY_BOOKINGS)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (!isAdded()) return;
                         if (snapshot.exists()) {
                             tasksArrayList.clear();
 

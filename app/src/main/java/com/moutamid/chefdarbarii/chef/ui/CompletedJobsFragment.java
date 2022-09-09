@@ -42,11 +42,14 @@ public class CompletedJobsFragment extends Fragment {
         progressDialog.setMessage("Loading...");
         progressDialog.show();
         Constants.databaseReference()
+                .child(Constants.USERS)
+                .child(Constants.CHEF)
                 .child(Constants.auth().getUid())
                 .child(Constants.COMPLETED_JOBS)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (!isAdded()) return;
                         if (snapshot.exists()) {
                             tasksArrayList.clear();
 

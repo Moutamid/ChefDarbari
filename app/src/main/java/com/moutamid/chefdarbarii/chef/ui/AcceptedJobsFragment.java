@@ -45,11 +45,14 @@ public class AcceptedJobsFragment extends Fragment {
         progressDialog.setMessage("Loading...");
         progressDialog.show();
         Constants.databaseReference()
+                .child(Constants.USERS)
+                .child(Constants.CHEF)
                 .child(Constants.auth().getUid())
                 .child(Constants.ACCEPTED_JOBS)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (!isAdded()) return;
                         if (snapshot.exists()) {
                             tasksArrayList.clear();
 
@@ -157,6 +160,8 @@ public class AcceptedJobsFragment extends Fragment {
 
                     // ADD CURRENT MODEL TO COMPLETED BOOKINGS
                     Constants.databaseReference()
+                            .child(Constants.USERS)
+                            .child(Constants.CHEF)
                             .child(Constants.auth().getUid())
                             .child(Constants.COMPLETED_JOBS)
                             .child(model.push_key)
@@ -164,6 +169,8 @@ public class AcceptedJobsFragment extends Fragment {
 
                     // REMOVE CURRENT MODEL FROM ACCEPTED BOOKINGS
                     Constants.databaseReference()
+                            .child(Constants.USERS)
+                            .child(Constants.CHEF)
                             .child(Constants.auth().getUid())
                             .child(Constants.ACCEPTED_JOBS)
                             .child(model.push_key)

@@ -50,7 +50,8 @@ public class AffiliateNavigationActivity extends AppCompatActivity {
         list.add(1);
         i = list.get(10);*/
 
-        FirebaseMessaging.getInstance().subscribeToTopic(Constants.AFFILIATE_NOTIFICATIONS);
+//        FirebaseMessaging.getInstance().subscribeToTopic(Constants.AFFILIATE_NOTIFICATIONS);
+        FirebaseMessaging.getInstance().subscribeToTopic(Constants.auth().getUid());
 
         getServerKey();
 
