@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -39,6 +40,12 @@ public class LoginActivity extends AppCompatActivity {
         b = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
         Objects.requireNonNull(getSupportActionBar()).hide();
+
+        b.privacyButton.setOnClickListener(v -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://www.chefdarbari.com/privacy.html"));
+            startActivity(browserIntent);
+        });
 
         progressDialog = new ProgressDialog(LoginActivity.this);
         progressDialog.setCancelable(false);
