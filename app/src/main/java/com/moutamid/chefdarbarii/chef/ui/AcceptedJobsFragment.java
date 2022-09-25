@@ -5,6 +5,7 @@ import static android.view.LayoutInflater.from;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,17 +34,21 @@ import java.util.ArrayList;
 
 
 public class AcceptedJobsFragment extends Fragment {
-
+    private static final String TAG = "AcceptedJobsFragment";
     private FragmentAcceptedJobsBinding b;
     private ProgressDialog progressDialog;
+
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         b = FragmentAcceptedJobsBinding.inflate(inflater, container, false);
         View root = b.getRoot();
+        Log.d(TAG, "onCreateView: ");
         if (!isAdded()) return b.getRoot();
+        Log.d(TAG, "onCreateView: ");
         progressDialog = new ProgressDialog(requireContext());
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Loading...");
         progressDialog.show();
+
         Constants.databaseReference()
                 .child(Constants.USERS)
                 .child(Constants.CHEF)
@@ -52,8 +57,11 @@ public class AcceptedJobsFragment extends Fragment {
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Log.d(TAG, "onDataChange: ");
                         if (!isAdded()) return;
+                        Log.d(TAG, "onDataChange: if (!isAdded()) return;");
                         if (snapshot.exists()) {
+                            Log.d(TAG, "onDataChange: if (snapshot.exists()) {");
                             tasksArrayList.clear();
 
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
@@ -62,11 +70,15 @@ public class AcceptedJobsFragment extends Fragment {
                             }
                             progressDialog.dismiss();
                             initRecyclerView();
-                        }else progressDialog.dismiss();
+                        } else {
+                            Log.d(TAG, "onDataChange: }else{");
+                            progressDialog.dismiss();
+                        }
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
+                        Log.d(TAG, "onCancelled: ERROR: " + error.toException().getMessage());
                         progressDialog.dismiss();
                         Toast.makeText(requireContext(), error.toException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -80,14 +92,8 @@ public class AcceptedJobsFragment extends Fragment {
     private RecyclerViewAdapterMessages adapter;
 
     private void initRecyclerView() {
-
         conversationRecyclerView = b.acceptedJobsRecyclerview;
-        //conversationRecyclerView.addItemDecoration(new DividerItemDecoration(conversationRecyclerView.getContext(), DividerItemDecoration.VERTICAL));
         adapter = new RecyclerViewAdapterMessages();
-        //        LinearLayoutManager layoutManagerUserFriends = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
-//    int numberOfColumns = 3;
-        //int mNoOfColumns = calculateNoOfColumns(getApplicationContext(), 50);
-        //  recyclerView.setLayoutManager(new GridLayoutManager(this, mNoOfColumns));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireActivity());
         linearLayoutManager.setReverseLayout(true);
         conversationRecyclerView.setLayoutManager(linearLayoutManager);
@@ -104,13 +110,6 @@ public class AcceptedJobsFragment extends Fragment {
 //    }
 
     }
-
-/*public static int calculateNoOfColumns(Context context, float columnWidthDp) { // For example columnWidthdp=180
-    DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-    float screenWidthDp = displayMetrics.widthPixels / displayMetrics.density;
-    int noOfColumns = (int) (screenWidthDp / columnWidthDp + 0.5); // +0.5 for correct rounding to int.
-    return noOfColumns;
-}*/
 
     private class RecyclerViewAdapterMessages extends RecyclerView.Adapter
             <RecyclerViewAdapterMessages.ViewHolderRightMessage> {
@@ -187,6 +186,7 @@ public class AcceptedJobsFragment extends Fragment {
                             .child(Constants.COMPLETED_JOBS)
                             .child(model.push_key)
                             .setValue(model);
+
                     uploadNotification(model);
                     Toast.makeText(requireContext(), "Done", Toast.LENGTH_SHORT).show();
                 }

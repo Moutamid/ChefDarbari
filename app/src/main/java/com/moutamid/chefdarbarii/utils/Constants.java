@@ -54,6 +54,8 @@ public class Constants {
     public static final String BOLD_END = "</b>";
     public static final String KEY = "KEY";
     public static final String AFFILIATE_LAST_BOOKING_ID = "AFFILIATE_LAST_BOOKING_ID";
+    public static final String TITLE = "TITLE";
+    public static final String BODY = "BODY";
 //    public static final String BOLD_TYPE = "text/html; charset=utf-8";
 
     public static FirebaseAuth auth() {

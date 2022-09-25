@@ -2,6 +2,7 @@ package com.moutamid.chefdarbarii.notifications;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.RequestQueue;
@@ -19,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class FcmNotificationsSender {
+    private static final String TAG = "FcmNotificationsSender";
     String body;
     private String fcmServerKey = "";
     Activity mActivity;
@@ -49,20 +51,25 @@ public class FcmNotificationsSender {
             mainObj.put("notification", notiObject);
             this.requestQueue.add(new JsonObjectRequest(1, "https://fcm.googleapis.com/fcm/send", mainObj, new Response.Listener<JSONObject>() {
                 public void onResponse(JSONObject response) {
+                    Log.e(TAG, "onResponse: response: " + response.toString());
                 }
             }, new Response.ErrorListener() {
                 public void onErrorResponse(VolleyError error) {
+                    Log.e(TAG, "onErrorResponse: ERROR: " + error.getMessage());
                 }
             }) {
                 public Map<String, String> getHeaders() throws AuthFailureError {
                     Map<String, String> header = new HashMap<>();
-                    header.put("content-type", "application/json");
-                    header.put("authorization", "key=" + fcmServerKey);
+                    header.put("Content-Type", "application/json");
+                    header.put("Authorization", "key=" + fcmServerKey);
+//                    header.put("content-type", "application/json");
+//                    header.put("authorization", "key=" + fcmServerKey);
 //                    header.put("authorization", "key=AAAApf24zxI:APA91bGR1OY2AYOcCJ9Nt156xLrOXrkzJKbwM6hj4d03d4YenZWBxgFTI4fnQnOMmZzFlXOlvr_VsGo39waxcVH4oyJYLZWK-YeMQgP5KDiOkdimuTFa93PoJY-1fRh5NeOhP0IMlGeZ");
                     return header;
                 }
             });
         } catch (JSONException e) {
+            Log.e(TAG, "SendNotifications: ERROR:" + e.getMessage());
             e.printStackTrace();
         }
     }

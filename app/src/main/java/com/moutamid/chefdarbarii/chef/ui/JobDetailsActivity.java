@@ -160,6 +160,8 @@ public class JobDetailsActivity extends AppCompatActivity {
 
                             // ADDING JOB DATA TO OUR OWN CHILD
                             Constants.databaseReference()
+                                    .child(Constants.USERS)
+                                    .child(Constants.CHEF)
                                     .child(Constants.auth().getUid())
                                     .child(Constants.ACCEPTED_JOBS)
                                     .child(model.push_key)

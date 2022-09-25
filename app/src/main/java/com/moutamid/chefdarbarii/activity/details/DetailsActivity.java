@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -19,6 +20,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -34,6 +38,7 @@ import com.moutamid.chefdarbarii.utils.Constants;
 import java.util.Objects;
 
 public class DetailsActivity extends AppCompatActivity {
+    private static final String TAG = "DetailsActivity";
 
     private AffiliateController affiliateController;
     private ChefController chefController;
@@ -188,6 +193,35 @@ public class DetailsActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(DetailsActivity.this);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Loading...");
+
+        getServerKey();
+    }
+
+    private void getServerKey() {
+        if (Stash.getString(Constants.KEY, "n").equals("n")) {
+            ProgressDialog progressDialog;
+            progressDialog = new ProgressDialog(DetailsActivity.this);
+            progressDialog.setCancelable(false);
+            progressDialog.setMessage("Loading...");
+            progressDialog.show();
+            Constants.databaseReference()
+                    .child("server_key")
+                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            progressDialog.dismiss();
+                            if (snapshot.exists()) {
+                                Stash.put(Constants.KEY, snapshot.getValue(String.class));
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                            progressDialog.dismiss();
+                            Toast.makeText(DetailsActivity.this, error.toException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 
     private void uploadChefData() {
@@ -206,6 +240,9 @@ public class DetailsActivity extends AppCompatActivity {
                             Toast.makeText(DetailsActivity.this, "Successful", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(DetailsActivity.this, ChefNavigationActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+                            intent.putExtra(Constants.TITLE, "New Chef SignUp");
+                            intent.putExtra(Constants.BODY, chefUserModel.name + " has signed up from " + chefUserModel.city);
                             finish();
                             startActivity(intent);
                         } else {
@@ -367,8 +404,11 @@ public class DetailsActivity extends AppCompatActivity {
             body = affiliateUserModel.name + " has signed up from " + affiliateUserModel.shopCity;
         } else {
             title = "New Chef SignUp";
-            body = chefUserModel.name +" has signed up from " + chefUserModel.city;
+            body = chefUserModel.name + " has signed up from " + chefUserModel.city;
         }
+        Log.e(TAG, "uploadNotification: title: " + title);
+        Log.e(TAG, "uploadNotification: body: " + body);
+
         new FcmNotificationsSender(
                 "/topics/" + Constants.ADMIN_NOTIFICATIONS,
                 title,
