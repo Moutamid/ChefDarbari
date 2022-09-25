@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.fxn.stash.Stash;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -36,6 +37,10 @@ public class MyBookingsFragment extends Fragment {
         b = FragmentMyBookingsBinding.inflate(inflater, container, false);
         View root = b.getRoot();
         if (!isAdded()) return b.getRoot();
+        if (Stash.getBoolean(Constants.PAUSE_STATUS, false))
+            return b.getRoot();
+
+
         progressDialog = new ProgressDialog(requireContext());
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Loading...");

@@ -52,6 +52,8 @@ public class AddNewBookingsFragment extends Fragment {
         View root = b.getRoot();
         if (!isAdded())
             return b.getRoot();
+        if (Stash.getBoolean(Constants.PAUSE_STATUS, false))
+            return b.getRoot();
 
         affiliateUserModel = (AffiliateUserModel) Stash.getObject(Constants.CURRENT_AFFILIATE_MODEL, AffiliateUserModel.class);
 

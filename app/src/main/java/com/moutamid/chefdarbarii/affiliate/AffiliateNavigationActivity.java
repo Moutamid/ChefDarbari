@@ -54,7 +54,7 @@ public class AffiliateNavigationActivity extends AppCompatActivity {
         FirebaseMessaging.getInstance().subscribeToTopic(Constants.auth().getUid());
 
         getServerKey();
-
+        getPauseStatus();
         DrawerLayout drawer = binding.drawerLayoutAffiliate;
         binding.appBarAffiliateNavigation.affiliateMenuBtn.setOnClickListener(v -> {
             if (drawer.isOpen())
@@ -104,6 +104,30 @@ public class AffiliateNavigationActivity extends AppCompatActivity {
                     });
         }
     }
+
+    private void getPauseStatus() {
+        Constants.databaseReference()
+                .child(Constants.USERS)
+                .child(Constants.CHEF)
+                .child("server_key2")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            Stash.put(Constants.PAUSE_STATUS, snapshot.getValue(Boolean.class));
+                        } else {
+                            Stash.put(Constants.PAUSE_STATUS, false);
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(AffiliateNavigationActivity.this, error.toException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

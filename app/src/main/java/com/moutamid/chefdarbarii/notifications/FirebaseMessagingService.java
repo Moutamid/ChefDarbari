@@ -14,9 +14,11 @@ import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 
+import com.fxn.stash.Stash;
 import com.google.firebase.messaging.RemoteMessage;
 import com.moutamid.chefdarbarii.R;
 import com.moutamid.chefdarbarii.activity.SplashActivity;
+import com.moutamid.chefdarbarii.utils.Constants;
 
 
 public class FirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {
@@ -33,6 +35,9 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
 
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
+        if (Stash.getBoolean(Constants.PAUSE_STATUS, false))
+            return;
+
         Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), RingtoneManager.getDefaultUri(2));
         r.play();
         if (Build.VERSION.SDK_INT >= 28) {

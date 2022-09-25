@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.fxn.stash.Stash;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -43,6 +44,10 @@ public class AcceptedJobsFragment extends Fragment {
         View root = b.getRoot();
         Log.d(TAG, "onCreateView: ");
         if (!isAdded()) return b.getRoot();
+
+        if (Stash.getBoolean(Constants.PAUSE_STATUS, false))
+            return b.getRoot();
+
         Log.d(TAG, "onCreateView: ");
         progressDialog = new ProgressDialog(requireContext());
         progressDialog.setCancelable(false);

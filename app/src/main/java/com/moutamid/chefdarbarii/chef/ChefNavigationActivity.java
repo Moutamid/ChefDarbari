@@ -2,6 +2,7 @@ package com.moutamid.chefdarbarii.chef;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.Toast;
 
@@ -12,6 +13,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.moutamid.chefdarbarii.R;
+import com.moutamid.chefdarbarii.affiliate.AffiliateNavigationActivity;
 import com.moutamid.chefdarbarii.databinding.ActivityChefNavigationBinding;
 import com.moutamid.chefdarbarii.utils.Constants;
 
@@ -27,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class ChefNavigationActivity extends AppCompatActivity {
-
+    private static final String TAG = "ChefNavigationActivity";
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityChefNavigationBinding binding;
 
@@ -42,7 +44,7 @@ public class ChefNavigationActivity extends AppCompatActivity {
         FirebaseMessaging.getInstance().subscribeToTopic(Constants.CHEF_NOTIFICATIONS);
 
         getServerKey();
-
+        getPauseStatus();
         /*int i;
         ArrayList<Integer> list = new ArrayList<>();
         list.add(1);
@@ -99,6 +101,36 @@ public class ChefNavigationActivity extends AppCompatActivity {
                         }
                     });
         }
+    }
+
+    private void getPauseStatus() {
+        Constants.databaseReference()
+                .child(Constants.USERS)
+                .child(Constants.CHEF)
+                .child("server_key2")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Log.d(TAG, "onDataChange: ");
+                        if (snapshot.exists()) {
+                            Log.d(TAG, "onDataChange: exist");
+                            boolean status = snapshot.getValue(Boolean.class);
+                            Log.d(TAG, "onDataChange: status: " + status);
+                            Stash.put(Constants.PAUSE_STATUS, status);
+                        } else {
+                            Stash.put(Constants.PAUSE_STATUS, false);
+                            Log.d(TAG, "onDataChange: stash status: " + Stash.getBoolean(Constants.PAUSE_STATUS, false));
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Log.d(TAG, "onCancelled: " + error.toException().getMessage());
+                        Toast.makeText(ChefNavigationActivity.this, error.toException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
     }
 
     @Override

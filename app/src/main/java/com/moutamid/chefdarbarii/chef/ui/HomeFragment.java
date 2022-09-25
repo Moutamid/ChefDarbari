@@ -37,6 +37,8 @@ public class HomeFragment extends Fragment {
         b = FragmentHomeBinding.inflate(inflater, container, false);
         View root = b.getRoot();
         if (!isAdded()) return b.getRoot();
+        if (Stash.getBoolean(Constants.PAUSE_STATUS, false))
+            return b.getRoot();
 
         progressDialog = new ProgressDialog(requireContext());
         progressDialog.setCancelable(false);

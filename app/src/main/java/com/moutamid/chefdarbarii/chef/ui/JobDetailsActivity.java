@@ -37,6 +37,8 @@ public class JobDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         b = ActivityJobDetailsBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
+        if (Stash.getBoolean(Constants.PAUSE_STATUS, false))
+            return;
 
         Objects.requireNonNull(getSupportActionBar()).hide();
         chefUserModel = (ChefUserModel) Stash.getObject(Constants.CURRENT_CHEF_MODEL, ChefUserModel.class);
