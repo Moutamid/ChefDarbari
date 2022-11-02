@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.PopupMenu;
+
 import com.moutamid.chefdarbarii.R;
 import com.moutamid.chefdarbarii.databinding.ActivityDetailsBinding;
 import com.moutamid.chefdarbarii.utils.Constants;
@@ -226,10 +227,10 @@ public class ChefController {
     }
 
     public boolean checkEntries() {
-        if (!b.checkboxChef.isChecked()) {
+        /*if (!b.checkboxChef.isChecked()) {
             toast("Please accept T&Cs!");
             return true;
-        }
+        }*/
         String name = b.nameEtChef.getText().toString();
         String mobileNmbr = b.numberEtChef.getText().toString();
         String whatsapp = b.whatsappEtChef.getText().toString();
@@ -297,14 +298,17 @@ public class ChefController {
         String work2HotelName = b.workEx2HotelNameEtChef.getText().toString();
         String work2post = b.workEx2PostEtChef.getText().toString();
         String work2city = b.workEx2CityEtChef.getText().toString();
+        name = "null";
         if (name.isEmpty()) {
             toast("Please enter your name");
             return true;
         } else activity.chefUserModel.name = name;
+        mobileNmbr = "0000";
         if (mobileNmbr.isEmpty()) {
             toast("Please enter your mobile number");
             return true;
         } else activity.chefUserModel.number = mobileNmbr;
+        whatsapp = "00000";
         if (whatsapp.isEmpty()) {
             toast("Please enter your WhatsApp number");
             return true;
@@ -320,64 +324,79 @@ public class ChefController {
         if (confirmPassword.isEmpty()) {
             toast("Please enter your confirm password");
             return true;
-        } else if (!confirmPassword.equals(password)){
+        } else if (!confirmPassword.equals(password)) {
             toast("Your password do not match!");
             return true;
         }
+        homeTown = "null";
         if (homeTown.isEmpty()) {
             toast("Please enter your home town");
             return true;
         } else activity.chefUserModel.home_town = homeTown;
+        monthlySalary = "000000";
         if (monthlySalary.isEmpty()) {
             toast("Please enter your monthly salary");
             return true;
         } else activity.chefUserModel.monthly_salary = monthlySalary;
+        work1HotelName = "null";
         if (work1HotelName.isEmpty()) {
             toast("Please enter your work 1 hotel name");
             return true;
         } else activity.chefUserModel.work_1_hotel_name = work1HotelName;
+        work1post = "null";
         if (work1post.isEmpty()) {
             toast("Please enter your work 1 post");
             return true;
         } else activity.chefUserModel.work_1_post = work1post;
+        work1city = "null";
         if (work1city.isEmpty()) {
             toast("Please enter your work 1 city");
             return true;
         } else activity.chefUserModel.work_1_city = work1city;
+        work2HotelName = "null";
         if (work2HotelName.isEmpty()) {
             toast("Please enter your work 2 hotel name");
             return true;
         } else activity.chefUserModel.work_2_hotel_name = work2HotelName;
+        work2post = "null";
         if (work2post.isEmpty()) {
             toast("Please enter your work 2 post");
             return true;
         } else activity.chefUserModel.work_2_post = work2post;
+        work2city = "null";
         if (work2city.isEmpty()) {
             toast("Please enter your work 2 city");
             return true;
         } else activity.chefUserModel.work_2_city = work2city;
 
         // URLs
+        activity.chefUserModel.work_1_certificate = "nulll";
         if (activity.chefUserModel.work_1_certificate.equals(Constants.NULL)) {
             toast("Please upload work 1 certificate!");
             return true;
         }
+        activity.chefUserModel.work_2_certificate = "nulll";
         if (activity.chefUserModel.work_2_certificate.equals(Constants.NULL)) {
             toast("Please upload work 2 certificate!");
             return true;
         }
+        activity.chefUserModel.aadhaar_card_url = "nulll";
         if (activity.chefUserModel.aadhaar_card_url.equals(Constants.NULL)) {
             toast("Please upload aadhaar card!");
             return true;
         }
+        activity.chefUserModel.education_certificate_url = "nulll";
         if (activity.chefUserModel.education_certificate_url.equals(Constants.NULL)) {
             toast("Please upload education certificate!");
             return true;
         }
+        activity.chefUserModel.resume_url = "nulll";
         if (activity.chefUserModel.resume_url.equals(Constants.NULL)) {
             toast("Please upload resume!");
             return true;
-        } if (activity.chefUserModel.covid_vaccination_url.equals(Constants.NULL)) {
+        }
+        activity.chefUserModel.covid_vaccination_url = "nulll";
+        if (activity.chefUserModel.covid_vaccination_url.equals(Constants.NULL)) {
             toast("Please upload covid vaccination doc!");
             return true;
         }

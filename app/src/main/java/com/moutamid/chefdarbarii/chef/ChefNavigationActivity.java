@@ -45,7 +45,8 @@ public class ChefNavigationActivity extends AppCompatActivity {
 
         getServerKey();
         getPauseStatus();
-        /*int i;
+        /*TODO: ERROR:
+           int i;
         ArrayList<Integer> list = new ArrayList<>();
         list.add(1);
         i = list.get(10);*/

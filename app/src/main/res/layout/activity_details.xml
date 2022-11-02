@@ -701,6 +701,7 @@
                             android:id="@+id/email_et_chef"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
+                            android:inputType="textPersonName"
                             android:background="@color/white"
                             android:hint="Email Address"
                             android:textSize="20sp" />
@@ -721,6 +722,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
+                            android:inputType="textPersonName"
                             android:background="@color/white"
                             android:id="@+id/password_et_chef"
                             android:hint="Password"
@@ -743,6 +745,7 @@
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="5dp"
                             android:background="@color/white"
+                            android:inputType="textPersonName"
                             android:id="@+id/confirm_password_et_chef"
                             android:hint="Re Enter Password"
                             android:textSize="20sp" />
