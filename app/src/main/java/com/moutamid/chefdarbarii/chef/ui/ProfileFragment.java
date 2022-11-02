@@ -2,6 +2,7 @@ package com.moutamid.chefdarbarii.chef.ui;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -29,6 +30,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.moutamid.chefdarbarii.R;
+import com.moutamid.chefdarbarii.activity.SplashActivity;
 import com.moutamid.chefdarbarii.activity.details.DetailsActivity;
 import com.moutamid.chefdarbarii.chef.ChefNavigationActivity;
 import com.moutamid.chefdarbarii.databinding.FragmentProfileBinding;
@@ -56,6 +58,23 @@ public class ProfileFragment extends Fragment {
         else
             initOnCreateMethod();
 
+        b.logoutBtn.setOnClickListener(v -> {
+            new AlertDialog.Builder(requireContext())
+                    .setTitle("Are you sure?")
+                    .setMessage("Do you really want to logout?")
+                    .setPositiveButton("No", (dialog, which) -> {
+                        dialog.dismiss();
+                    })
+                    .setNegativeButton("Yes", (dialog, which) -> {
+                        Constants.auth().signOut();
+                        Stash.clearAll();
+                        Intent intent = new Intent(requireContext(), SplashActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        requireActivity().finish();
+                        startActivity(intent);
+                    })
+                    .show();
+        });
 
         return root;
     }

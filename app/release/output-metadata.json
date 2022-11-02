@@ -11,9 +11,9 @@
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 10,
-      "versionName": "1.9",
-      "outputFile": "ChefDarbari-1.9-release.apk"
+      "versionCode": 11,
+      "versionName": "1.10",
+      "outputFile": "ChefDarbari-1.10-release.apk"
     }
   ],
   "elementType": "File"
